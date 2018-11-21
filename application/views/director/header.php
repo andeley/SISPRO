@@ -48,7 +48,7 @@
           <ul class="navbar-nav ml-auto">  
            
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#" class="dropdown-toggle" data-toggle="dropdown">Areas</a>
+              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>director/Areas" class="dropdown-toggle" data-toggle="dropdown">Areas</a>
             </li>
             
              <li class="nav-item">
