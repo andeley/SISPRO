@@ -48,19 +48,7 @@
           <ul class="navbar-nav ml-auto">  
            
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#" class="dropdown-toggle" data-toggle="dropdown">Materias</a>
-              <ul class="dropdown-menu">
-                 <li>
-                        <a href="<?=base_url();?>director/Areas">
-                            <i class="fa fa-user-plus"></i> <span>Ver Areas de conocimiento</span>
-                        </a>
-                 </li>
-                 <li>
-                        <a href="<?=base_url();?>director/Areas/misAreas">
-                            <i class="fa fa-user-plus"></i> <span>Mis Areas</span>
-                        </a>
-                 </li>
-              </ul>
+              <a class="nav-link js-scroll-trigger" href="#" class="dropdown-toggle" data-toggle="dropdown">Areas</a>
             </li>
             
              <li class="nav-item">
