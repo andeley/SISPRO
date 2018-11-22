@@ -21,14 +21,24 @@ class Simulacros extends CI_Controller {
 		$this->load->view('estudiante/header');
 		$id=$this->session->userdata("id");
 
-		//cargar todos los simulacros
-		$data['simulacros']= $this-> Simulacros_model->getSimulacros();
-
+		//cargar todos los simulacros del programa académico
+		$data['programa']= $this-> Usuarios_model->getUsuarioPrograma($id);
+		$data['simulacros']= $this-> Simulacros_model->getSimulacrosPrograma($data['programa']);
+		$data['tipo']= "General";
 		//cargar todos los simulacros registrados por el estudiante
-		$data['simulacros_estudiante']= $this-> Simulacros_model->getSimulacrosEstudiante($id);		
-	//	if($data['simulacros_estudiante']!= false )echo ('Numero de simulacros registrados activos: '.count($data['simulacros_estudiante']));
-		//else echo "el estudiante no tiene simulacros";
+		$data['simulacros_estudiante']= $this-> Simulacros_model->getSimulacrosEstudiante($id);	
+		if($data['simulacros']){
+			$areas = array();
+			foreach ($data['simulacros'] as $s) {
+				array_push($areas, $this->Simulacros_model->getAreasSimulacro($s-> id));	
+			}
+			$data['areas_simulacros'] = $areas;
+		}	
 		$this->load->view('estudiante/simulacros', $data);
+	}
+
+	public function Registarse(){
+		
 	}
 }
 ?>

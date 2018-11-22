@@ -3,6 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Simulacros_model extends CI_Model {
 
+public function getSimulacrosPrograma($nombre_programa){
+	$this->db->select('s.id, d.nombre AS nombreDir, s.fecha_inicio, s.fecha_fin, s.nombre AS nombreS, p.nombre AS nombreProg, s.fecha_inicio, s.fecha_fin, s.descripcion');
+		 $this->db->from('simulacro s');
+		 $this->db->join('usuario d', 'd.id=s.id_director');
+		 $this->db->join('programa_academico p', 'p.id=d.id_programa');
+		 $this->db->where('p.nombre', $nombre_programa);
+		 $consulta=$this->db->get();
+			 if($consulta->num_rows() > 0){
+				return $consulta->result();
+			} return false;
+}
+
 public function getEstudiantes($id){//estudiantes que se registraron en el simulacro
 	$this->db->select('u.id, u.codigo, u.nombre');
 	$this->db->from('Inscripcion i');
