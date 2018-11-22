@@ -24,8 +24,16 @@ class Simulacros extends CI_Controller {
 		$data['simulacros']= $this-> Simulacros_model->getSimulacros();
 		$data['user']= $this-> Usuarios_model->getDirectorB($id);
 		$data['est']= "viewall";
+		$data['programa']= $this-> Usuarios_model->getUsuarioPrograma($id);
+		if($data['simulacros']){
+			$areas = array();
+			foreach ($data['simulacros'] as $s) {
+				array_push($areas, $this->Simulacros_model->getAreasSimulacro($s-> id));	
+			}
+			$data['areas_simulacros'] = $areas;
+		}
 		$this->load->view('director/simulacros', $data);
-		$this->load->view('layouts/footer', $data);
+		
 
 
 	}

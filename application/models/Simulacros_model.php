@@ -43,7 +43,7 @@ public function getSimulacrosEstudiante($id_est){//Simulacros activos para el es
 			} return false;
 }
 public function getSimulacros(){ //todos los simulacros de los programas académicos
-	     $this->db->select('s.id, d.nombre AS nombreDir, s.fecha_inicio, s.fecha_fin, s.nombre AS nombreS, p.nombre AS nombreProg, s.fecha_inicio, s.fecha_fin');
+	     $this->db->select('s.id, d.nombre AS nombreDir, s.fecha_inicio, s.fecha_fin, s.nombre AS nombreS, p.nombre AS nombreProg, s.fecha_inicio, s.fecha_fin, s.descripcion');
 		 $this->db->from('simulacro s');
 		 $this->db->join('usuario d', 'd.id=s.id_director');
 		 $this->db->join('programa_academico p', 'p.id=d.id_programa');

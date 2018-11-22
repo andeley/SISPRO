@@ -141,15 +141,15 @@ $i = 0;
       </div>
        <div class="modal-body">
        <div id="reg_sim_content">
-            <p>nombre: <?=$s-> nombreS;?> </p>
-            <p>Descripción: <?=$s-> descripcion;?> </p>
-            <p>Director A cargo: <?=$s-> nombreDir;?></p>
-            <p>Fecha del Simulacro: <?php echo date("d/m/Y", strtotime($s->fecha_inicio)); ?></p>
-            <p>Horario: de <?php echo date("g:i:s A", strtotime($s->fecha_inicio)); ?> a <?php echo date("g:i:s  A", strtotime($s->fecha_fin)); ?></p>
-            <?php if($areas_simulacros[$cont] ){ ?> //CORREGIR ACA
-                  <p>Areas a evaluar:</p>
-                  <p><?php foreach ($areas_simulacros[$cont] as $a_s) { ?>
-                    <?php echo $a_s -> nombre ; ?>
+            <p><b>nombre: </b><?=$s-> nombreS;?> </p>
+            <p><b>Descripción: </b><?=$s-> descripcion;?> </p>
+            <p><b>Director A cargo: </b><?=$s-> nombreDir;?></p>
+            <p><b>Fecha del Simulacro: </b>Fecha del Simulacro: <?php echo date("d/m/Y", strtotime($s->fecha_inicio)); ?></p>
+            <p><b>Horario: </b>de <?php echo date("g:i:s A", strtotime($s->fecha_inicio)); ?> a <?php echo date("g:i:s  A", strtotime($s->fecha_fin)); ?></p>
+            <?php if($areas_simulacros[$cont] ){ ?>
+                  <p><b>Areas a evaluar:</b>
+                  <?php foreach ($areas_simulacros[$cont] as $a_s) { ?>
+                    <?php echo $a_s -> nombre.", " ; ?>
                   <?php } ?></p>
             <?php } ?>
       </div>

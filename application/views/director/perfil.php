@@ -14,6 +14,22 @@
       <b>Correo Electrónico: </b> <?=$info -> correo?> <br><br>
       <b>Programa Académico:</b>  <?=$programa;?> <br><br>
 
+      <!--Areas de conocimiento del docente-->
+
+       <?php if ($areas_doc != false) {
+        ?>
+        <b>Areas de conocimiento del Director: </b>
+       
+            <?php 
+            $primera = false;
+            foreach ($areas_doc as $ad): ?>
+                  <?php 
+                  if($primera)echo (", ");
+                  $primera = true;
+                  echo ($ad->nombre);?>
+            <?php endforeach;?>
+            <?php }?>
+
     </div>              
 </div>
     

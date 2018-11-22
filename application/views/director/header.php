@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-      <title>SISPRO - Preguntas</title>
+      <title>SISPRO - Director</title>
 
     <!-- Bootstrap core-->
     <link href="<?php echo base_url(); ?>assets/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
           <ul class="navbar-nav ml-auto">  
            
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>director/Areas" class="dropdown-toggle" data-toggle="dropdown">Areas</a>
+              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>director/Areas">Areas</a>
             </li>
             
              <li class="nav-item">

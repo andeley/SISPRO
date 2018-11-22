@@ -1,3 +1,4 @@
+<!--ARREGLAR ESTA VISTA, BOTA ERROR-->
  <!-- Content Wrapper. Contains page content -->
         <div style="min-height: 524px;">
             <!-- Content Header (Page header) -->
@@ -74,44 +75,7 @@ foreach ($todas_las_areas as $area): ?>
                     </select>
                             <input type="submit" name="guardarA" value="Registrar Area">
                         </form>
-                     <?php if ($areas_doc != false) {
-        ?>
-        <h4>Areas de conocimiento del Director</h4>
-                    <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($areas_doc as $ad): ?>
-            <tr>
-
-
-                <td><?php echo $ad->id; ?></td>
-                <td><?php echo $ad->nombre; ?></td>
-
-                <td>
-
-                                    <center>
-
-                                        <!--eliminar categoria-->
-                                        <a href="#" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
-
-                                     </center>
-                                    </td>
-                                        </tr>
-                                        <?php endforeach;?>
-                                    </tbody>
-
-                                </table>
-            <?php
-
-    } else {?>
-                <p><center>No tienes Areas de Conocimiento Relacionadas</center></p>
-                <?php }
+                    
 
 }
 
@@ -123,5 +87,5 @@ foreach ($todas_las_areas as $area): ?>
                 <!-- /.box -->
             </section>
             <!-- /.content -->
-        </div>
+     
         <!-- /.content-wrapper -->
