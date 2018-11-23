@@ -23,7 +23,6 @@ class Estudiantes extends CI_Controller {
 		$data['estudiantes'] = $this-> Usuarios_model->getEstudiantes($programa);
 
 		$this->load->view('director/estudiantes', $data);
-		$this->load->view('layouts/footer', $data);
 
 
 	}

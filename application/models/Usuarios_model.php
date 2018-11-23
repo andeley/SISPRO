@@ -16,6 +16,32 @@ class Usuarios_model extends CI_Model {
         }
     }
 
+    public function AsignarNuevoDirector($id_doc, $id_dir){
+
+        //eliminar cargo director
+        $data['es_director'] ='no';
+        $this->db->where('id_user',  $id_dir);
+        $this->db->update('docente', $data);
+
+        //asignar nuevo docente
+        $data['es_director'] ='si';
+        $this->db->where('id_user',  $id_doc);
+        $this->db->update('docente', $data);
+    }
+
+    public function existe_Docente($codigo_docente){
+        $this->db->select('d.id_user');
+        $this->db->from('docente d');
+        $this->db->join('usuario u', 'u.id=d.id_user');
+        $this->db->where("u.codigo", $codigo_docente);
+
+        $consulta=$this->db->get();
+        if($consulta->num_rows() > 0){
+            return $consulta->row()->id_user;
+        } else      return false;
+
+    }
+
     public function getEstudiantes($programa){
         $this->db->select('u.nombre, u.id_programa, u.codigo, u.id');
         $this->db->from('usuario u');
