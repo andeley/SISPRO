@@ -3,32 +3,63 @@
       
 <div class="container-fluid">
     <div id="indice_pag">          
-        <center><p>Perfil del Director de Programa</p></center>
-    </div>     
+        <p>Gestionar >Perfil</p>
+    </div>      
     
     <div id="cotenido_pag">          
-      
-      <b>Nombre:</b>  <?=$info -> nombre?> <br><br>
-      <b>Id:</b>  <?=$info -> id?> <br><br>
-      <b>Código:</b>  <?=$info -> codigo?> <br><br>
-      <b>Correo Electrónico: </b> <?=$info -> correo?> <br><br>
-      <b>Programa Académico:</b>  <?=$programa;?> <br><br>
+    
+    <div class="cuadro_prin_dir_per">
+                  
+           <div id="cuadro_content_dir_per">
+            <div id="cuadro_uno_dir_per">
+                <p>Información basica</p>
+            </div>
+            
+            <div id="division">
+            <div id="cuadro_dos_dir_per">
+                <ul>
+                    <li><span class="info_basic_dir_per">Nombre: </span> <br> <?=$info -> nombre?></li>
+                    <li><span class="info_basic_dir_per">Codigo</span><br><?=$info -> codigo?></li>
+                    <li><span class="info_basic_dir_per">Email: </span><br><?=$info -> correo?></li>
+                    <li><span class="info_basic_dir_per">Programa academico:</span><br><?=$programa;?></li>
+                    <li><span class="info_basic_dir_per">Función:</span><br>Director de programa</li>
+                </ul>
+            
+            </div>
 
-      <!--Areas de conocimiento del docente-->
+            <div id="cuadro_tres_dir_per">
+                <!--<ul>
+                    <li><span class="info_basic_dir_per">Nombre: </span> <br> <?=$info -> nombre?></li>
+                    <li><span class="info_basic_dir_per">Codigo</span><br><?=$info -> codigo?></li>
+                    <li><span class="info_basic_dir_per">Email: </span><br><?=$info -> correo?></li>
+                    <li><span class="info_basic_dir_per">Programa academico:</span><br><?=$programa;?></li>
+                    <li><span class="info_basic_dir_per">Función:</span><br>Director de programa</li>
+                </ul>-->
 
-       <?php if ($areas_doc != false) {
+                 <?php if ($areas_doc != false) {
         ?>
         <b>Areas de conocimiento del Director: </b>
        
             <?php 
             $primera = false;
+            echo ("<br> ");
             foreach ($areas_doc as $ad): ?>
                   <?php 
-                  if($primera)echo (", ");
+                  if($primera)echo (",<br> ");
                   $primera = true;
                   echo ($ad->nombre);?>
             <?php endforeach;?>
             <?php }?>
+            
+            </div>
+            </div>
+            </div>
+        </div>
+
+ 
+      <!--Areas de conocimiento del docente-->
+
+      
 
     </div>              
 </div>
