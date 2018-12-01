@@ -4,8 +4,7 @@
     margin: 8% auto;
     background-color: #F1F1F1;
     width: 80%;
-    height: auto;
-    padding-bottom: 100px;
+    height: 1000px;
 }
 
 #indice_pag{
@@ -19,9 +18,9 @@
 }
 
 #cotenido_pag{
-   margin: 0 auto;
+    margin: 0 auto;
     width: 78%;
-    height: auto;
+    height: 30px;
 }
 
 footer{
