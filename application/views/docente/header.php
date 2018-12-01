@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-      <title>SISPRO - Docente</title>
+      <title>SISPRO - Director</title>
 
     <!-- Bootstrap core-->
     <link href="<?php echo base_url(); ?>assets/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,37 +33,79 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a  class="navbar-brand js-scroll-trigger" href="#page-top">
-    <img src="<?php echo base_url(); ?>assets/template/img/logo_blanco.png" alt="">        
-            
-            
-        </a>
-         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">  
-           
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?php echo base_url();?>docente/Preguntas">Preguntas</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?php echo base_url();?>docente/Areas">Areas</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>docente/Simulacros">Simulacros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?php echo base_url(); ?>docente/Perfil">Perfil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?php echo base_url(); ?>AutenticarLogin/logout">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
+    
+            
+               <nav class="navbar navbar-default navbar-static-top " role="navigation" role="navigation" style="background-color: #C10303">
+                <!-- Sidebar toggle button-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        
+
+                        <li>
+                            <!--class="treeview"-->
+                            <a href="<?php echo base_url();?>docente/Preguntas">
+                            <i class="fa fa-question-circle"></i> <span>Preguntas</span>
+                            <!--span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span-->
+                        </a>
+                            <!--ul class="treeview-menu">
+                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Categorias</a></li>
+                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Productos</a></li>
+                        </ul-->
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url();?>docente/Areas">
+                            <i class="fa fa-sitemap"></i> <span>Areas</span>
+                        </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                            <i class="fa fa-sticky-note-o"></i> <span>Simulacros</span>
+                        </a>
+                        </li>
+                        
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="<?php echo base_url()?>assets/template/dist/img/usuario.png" class="user-image" alt="User Image">
+                                <span class="hidden-xs"><?php echo $this->session->userdata("nombre")?></span>
+                            </a>
+                
+
+                            <ul class="dropdown-menu">
+                                  <li>
+                            <a href="<?php echo base_url()?>/docente/Perfil" style="text-align: center;">
+                            <i class="fa fa-home"></i> <span>Perfil</span>
+                        </a>
+                        </li>
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <a href="<?php echo base_url();?>AutenticarLogin/logout"> <i class="fa fa-power-off"></i><span> Cerrar Sesión</span></a>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+        </header>

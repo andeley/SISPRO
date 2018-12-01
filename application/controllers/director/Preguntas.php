@@ -1,5 +1,5 @@
 <?php
-						
+						//PERFIL DIRECTOR
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Preguntas extends CI_Controller { //autenticar

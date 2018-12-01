@@ -1,5 +1,5 @@
 <?php
-						
+						//PERFIL DIRECTOR
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Preguntas extends CI_Controller { //autenticar
@@ -14,14 +14,12 @@ class Preguntas extends CI_Controller { //autenticar
 	public function index()
 	{
 		$this->load->view('docente/header');
-		$id=$this->session->userdata("id");
-		$data['tipo']= "general";
-		//Modal aprobar preguntas
-		$programa =  $this-> Usuarios_model->getUsuarioPrograma($id);
+		
 
-		$data['todas_las_areas'] = $this-> Areas_model->getAreas(); //todas las areas
-		$data['preguntas']= $this-> Preguntas_model->getPreguntas($id); //preguntas del docente
+		$id=$this->session->userdata("id");
+		$data['preguntas']= $this-> Preguntas_model->getPreguntas($id);
 		$data['user']= $this-> Usuarios_model->getDirectorB($id); //datos basicos del user
+		$data['est']= "general";
 		$areas = $this-> Usuarios_model-> getAreasDocente($id);
 
 		if(!$areas){
@@ -31,127 +29,11 @@ class Preguntas extends CI_Controller { //autenticar
 			$data['crear']= true;
 		}
 
-		//cargar vista crear pregunta
-		$data['Areas'] = $this-> Usuarios_model ->getAreasDocente($id);
+		
 
-		$this->load->view('docente/preguntas', $data);
-	}
+		$this->load->view('docente/preguntas/listado', $data);
+		$this->load->view('layouts/footer');
 
-	public function eliminar(){
-
-	}
-
-	public function anadir(){ 
-
-		$enunciado['contenido'] = $this->input ->post("enunciado");
-		$id_enunciado = $this-> Preguntas_model->crearEnunciado($enunciado);
-
-		//registrar pregunta
-		$pregunta['id_enunciado'] = $id_enunciado;
-		$pregunta['tipo'] = $this->input ->post("tipo"); 
-		$pregunta['visibilidad'] = $this->input ->post("visibilidad");
-		$pregunta['id_docente_cargo'] = $this->session->userdata("id");
-		$pregunta['id_area'] = $this->input ->post("area");
-		$pregunta['estado'] = "espera";
-		$pregunta['descripcion'] = $this->input ->post("descripcionPregunta");
-
-		$id_p = $this-> Preguntas_model-> crearPregunta($pregunta);
-		//insertar opciones
-	if($pregunta['tipo']=="sm"){
-		$opciones = $this->input ->post("opcion");
-		$justificaciones = $this->input ->post("justificacion");
-		$opcion_correcta = $this->input ->post("correcta");
-		$contador = 0;
-
-		foreach ($opciones as $opcion) {
-			if($opcion!=""){
-				if($contador+1 == $opcion_correcta) $opcio['correcta']= "si";
-				else   $opcio['correcta']= "no";
-
-				$opcio['id_pregunta'] = $id_p;
-				$opcio['descripcion'] = $opcion;
-				$opcio['justificacion'] = $justificaciones[$contador];
-
-				$this-> Preguntas_model-> registrarOpcion($opcio);
-			}
-			$contador++;
-		}
-	}else if($pregunta['tipo']=="vf"){
-
-		$opcione = $this->input ->post("opcion2");
-		$justificaciones = $this->input ->post("justificacion2");
-		$opcion_correcta = $this->input ->post("correcta2");
-		$contador = 0;
-		foreach ($opcione as $opcion) {
-			if($opcion!=""){
-				if($contador+1 == $opcion_correcta) $opcio['correcta']= "si";
-				else   $opcio['correcta']= "no";
-
-				$opcio['id_pregunta'] = $id_p;
-				$opcio['descripcion'] = $opcion;
-				$opcio['justificacion'] = $justificaciones[$contador];
-
-				$this-> Preguntas_model-> registrarOpcion($opcio);
-			}
-			$contador++;
-		}
-	}else{ //registrar opc para pregunta abierta
-		$opcio['correcta']= "si";
-		$opcio['id_pregunta'] = $id_p;
-		$opcio['descripcion'] = $this->input ->post("opciona");
-		$opcio['justificacion'] = $this->input ->post("justificaciona");
-		$this-> Preguntas_model-> registrarOpcion($opcio);
-	}
-	redirect(base_url()."docente/Preguntas");
-
-	}
-
-	public function editar(){
-		//cargar vista editar pregunta
-		$id_pregunta= $this->uri-> segment(4);
-	}
-
-	public function verDetalle(){
-		$id_pregunta= $this->uri-> segment(4);
-		//obtener detalle de la pregunta, del enunciado general (si tiene), de las opciones de respuesta, , la respuesta correcta y la justificación
-		$data['info_pregunta'] = $this-> Preguntas_model->getPregunta($id_pregunta); 
-		$data['opciones_respuesta'] = $this-> Preguntas_model->getOpcionesRespuesta($id_pregunta);
-		$data['area_p'] = $this-> Preguntas_model->getAreaP($id_pregunta);
-		$data['tipo']= "ver detalle pregunta";
-		if(!is_null($data['info_pregunta']->id_enunciado)){
-			$data['enunciado'] = $this-> Preguntas_model->descripcionEnunciado($data['info_pregunta']->id_enunciado);
-		}else{
-			$data['enunciado'] ="no existe enunciado";
-		}
-		$this->load->view('docente/header');
-		$this->load->view('docente/preguntas', $data);
-		//$this->load->view('layouts/footer');
-	}
-
-	public function aprobar_pregunta(){//aprobar las preguntas realizadas por un docente
-		$id_pregunta= $this->uri-> segment(4);
-		$this-> Preguntas_model->aprobarPregunta($id_pregunta);
-		redirect(base_url()."docente/Preguntas/gestionar");
-	}
-
-	public function ver_preguntas_docente(){
-		$this->load->view('docente/header');
-		$id=$this->session->userdata("id");
-		$data['tipo'] = "ver preguntas docente";
-		$data['preguntas']= $this-> Preguntas_model->getPreguntas($id);
-		$this->load->view('docente/preguntas', $data);
-	}
-
-	public function ver_preguntas_area(){
-		//listar las preguntas por area de conocimiento
-		$this->load->view('docente/header');
-		$id_area= $this->uri-> segment(4);
-		$data['id_a'] = $id_area;
-		$data['tipo'] = "ver preguntas area";
-		$data['nombre_area'] = $this->Areas_model->getNombreArea($id_area);
-		$data['preguntas']= $this-> Preguntas_model->getPreguntasArea($id_area);
-		$this->load->view('docente/preguntas', $data);
-	//	$this->load->view('layouts/footer');
 	}
 
     //cargar vista creacionPregunta
@@ -161,7 +43,7 @@ class Preguntas extends CI_Controller { //autenticar
 		
 		$data['est']= "creacion_pregunta";
 		$this->load->view('docente/preguntas/creacion_preguntas', $data);
-	//	$this->load->view('layouts/footer');
+		$this->load->view('layouts/footer');
 	}
 
 }
