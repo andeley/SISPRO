@@ -105,6 +105,7 @@ class Preguntas extends CI_Controller { //autenticar
 		$opcio['justificacion'] = $this->input ->post("justificaciona");
 		$this-> Preguntas_model-> registrarOpcion($opcio);
 	}
+	redirect(base_url()."director/Preguntas");
 
 	}
 

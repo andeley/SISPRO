@@ -41,7 +41,7 @@ $num_filas = ceil(count($todas_las_areas) / 3);
         ?>
 
            <div class="row">
-            <?php for ($i = 0; $i < 3 || $cont < count($todas_las_areas); $i++, $cont++) {?>
+            <?php for ($i = 0; $i < 3 && $cont < count($todas_las_areas); $i++, $cont++) {?>
 
            <div class="col-md-4 mb-3 mb-md-0">
             <div class="card py-4 h-100">
@@ -315,6 +315,11 @@ break;
             <center><label for="inputState">Ingresar Enunciado</label></center>
             <div  class="form-group" id="inputState">
                 <center><textarea id="js-textarea" rows="5" cols="10" name="enunciado">Esto es Opcional</textarea></center>
+                 <script type="text/javascript">
+                  CKEDITOR.replace( 'js-textarea' );
+                  //CKEDITOR.config.width="95%";
+                  //CKEDITOR.config.height="150px";
+              </script>
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -426,11 +431,7 @@ break;
     <script src="<?php echo base_url(); ?>assets/template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-------------------SCRIPT CORRESPONDIENTE AL PANEL DE TEXTO--------------------------------->
-  <script type="text/javascript">
-    var editor = CKEDITOR.replace( 'js-textarea' );
-    CKEDITOR.config.width="95%";
-    CKEDITOR.config.height="150px";
-</script>
+ 
 
    <!---------------------RESPUESTAS DINAMICAS--------------------------->
 
@@ -496,7 +497,7 @@ function contenido_preguntas(){
                 responsive: true
             });
             
-            $('#formCrearPregunta').submit( function(e) {
+           /* $('#formCrearPregunta').submit( function(e) {
                 $.ajax({
                     url:  $(this).attr('action'),
                     type:"POST",
@@ -508,7 +509,7 @@ function contenido_preguntas(){
             }
         });
                 e.preventDefault();
-            });
+            });*/
         });
 
     </script>
@@ -522,9 +523,6 @@ function contenido_preguntas(){
     <script src="<?php echo base_url(); ?>assets/template/js/grayscale.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     
-
-
-   <!-- Bootstrap core JavaScript-------------------------------------------------- -->
   </body>
 
 </html>

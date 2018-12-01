@@ -21,7 +21,7 @@ class Docentes extends CI_Controller {
 		$id=$this->session->userdata("id");
 		$data['programa']= $this-> Usuarios_model->getUsuarioPrograma($id);
 		//cargar todos los docentes del programa académico que aún no han sido aprobados
-		$programa =  $this-> Usuarios_model->getUsuarioPrograma($id); //programa academico al cual pertenece al usuario
+		$programa =  $data['programa'];
 		$data['docentes_a'] = $this-> Usuarios_model->docentes_en_espera($programa, "espera");
 		//cargar los docentes vinculados a un programa académico (docentes de planta)
 		$data['docentes_a2'] = $this-> Usuarios_model->docentes_en_espera($programa, "aprobado");
@@ -40,7 +40,7 @@ class Docentes extends CI_Controller {
 			$this-> Usuarios_model->AsignarNuevoDirector($id_doc, $id);
 			redirect(base_url().'AutenticarLogin/logout/'); 
 		}else{
-			$this->session->set_flashdata("error", "Codigo no existe"); 
+			$this->session->set_flashdata("error", "el Código no corresponde a un docente"); 
 			redirect(base_url()."director/usuarios/Docentes");
 		}
 		

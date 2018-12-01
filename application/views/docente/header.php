@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+  <head>
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sispro Docente</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/font-awesome/css/font-awesome.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-    folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+      <title>SISPRO - Director</title>
+
+    <!-- Bootstrap core-->
+    <link href="<?php echo base_url(); ?>assets/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/dir_pre_style.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/menu.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+   <!-------editor de texto------->
+   <script type="text/javascript" src="<?php echo base_url(); ?>assets/template/js/jquery-1.12.0.js"></script>
+   <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/template/css/editor.css">
     <link href="https://ww2.ufps.edu.co/assets/img/ico/favicon.ico" rel="Shortcut icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-    <link rel="stylesheet"  href="<?php echo base_url();?>assets/template/dist/css/estilos.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
-    <!--selectpicker-->
-    <script src="//cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
-    <!--integrar editor de texto  https://ckeditor.com/ckeditor-4/download/#-->
-</head>
+    <!--Notificaciones-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    
+  </head>
 
-<body class="hold-transition skin-blue ">
-    <!-- Site wrapper -->
- 
-        <header class="main-header">
-            <!-- Logo -->
+  <body>
 
-            <a style="background-color: #C10303" href="../../index2.html" class="logo">
-             
-                <span class="logo-lg"><b class="titulo">SISPRO</b><i class="fa fa-book"></i></span>
-            </a>
 
-            <!-- Header Navbar: style can be found in header.less -->
+    
             
                <nav class="navbar navbar-default navbar-static-top " role="navigation" role="navigation" style="background-color: #C10303">
                 <!-- Sidebar toggle button-->

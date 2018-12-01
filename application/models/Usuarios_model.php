@@ -16,6 +16,17 @@ class Usuarios_model extends CI_Model {
         }
     }
 
+
+    public function get_id_user($codigo){
+        $this->db->select('id');
+        $this->db->from('usuario');
+        $this->db->where('codigo',  $codigo);
+        $consulta=$this->db->get();
+        if($consulta->num_rows() > 0){
+            return $consulta->row()->id;
+        } else      return false;
+
+    }
     public function AsignarNuevoDirector($id_doc, $id_dir){
 
         //eliminar cargo director

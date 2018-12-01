@@ -3,6 +3,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Simulacros_model extends CI_Model {
 
+public function getPreguntasAreaS($id_area, $id_simulacro){ //extraer preguntas del area simulacro
+	$this->db->select('*');
+	$this->db->from('pregunta p');
+	$this->db->join('simulacro_pregunta sm', 'sm.id_pregunta = p.id');
+	$this->db->join('simulacro s', 's.id = sm.id_simulacro');
+    $this->db->join('area_simulacro as', 'as.id_simulacro = s.id');
+    $this->db->where('as.id_area='.$id_area);
+    $this->db->where('sm.id_simulacro='.$id_simulacro);
+
+	 $resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;	
+}
+
+public function getEnunciadosAreaS($id_area, $id_simulacro){ //extraer enunciados del simulacros por el area
+	$this->db->select('e.id, e.contenido');
+	$this->db->distinct();
+	$this->db->from('enunciado e');
+	$this->db->join('pregunta p', 'p.id_enunciado = e.id');
+    $this->db->join('simulacro_pregunta sm', 'sm.id_pregunta = p.id');
+    $this->db->join('simulacro s', 's.id = sm.id_simulacro');
+    $this->db->join('area_simulacro as', 'as.id_simulacro = s.id');
+
+    $this->db->where('as.id_area='.$id_area);
+    $this->db->where('sm.id_simulacro='.$id_simulacro);
+
+	 $resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;	
+}
+
+public function eliminarEstudianteSimulacro($estudiante, $simulacro){
+	$this->db->where('id_simulacro='.$simulacro);
+	$this->db->where('id_estudiante='.$estudiante);
+	$this->db->delete('inscripcion');
+}
+
+public function eliminarAreaSimulacro($area, $simulacro){
+
+	$this->db->where('id_simulacro='.$simulacro);
+	$this->db->where('id_area='.$area);
+	$this->db->delete('area_simulacro');
+}
+
+public function registrarPreguntaSimulacro($simulacro_pregunta){
+	return $this->db->insert("simulacro_pregunta", $simulacro_pregunta);
+}
+
+public function registrarEstudianteSimulacro($inscripcion){
+	return $this->db->insert("inscripcion", $inscripcion);
+}
+
+public function getPreguntasNoR($id_simulacro){ //preguntas que no han sido registradas del simulacro
+			$this->db->select('*');
+			$this->db->from('pregunta p');
+		 	$this->db->where("p.id NOT IN 
+										(SELECT s.id_pregunta
+										 FROM simulacro_pregunta s
+										 WHERE s.id_simulacro =".$id_simulacro.")");
+
+		 $resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;	
+
+}
+
 public function getSimulacrosPrograma($nombre_programa){
 	$this->db->select('s.id, d.nombre AS nombreDir, s.fecha_inicio, s.fecha_fin, s.nombre AS nombreS, p.nombre AS nombreProg, s.fecha_inicio, s.fecha_fin, s.descripcion');
 		 $this->db->from('simulacro s');

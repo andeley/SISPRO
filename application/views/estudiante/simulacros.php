@@ -11,6 +11,7 @@
     ?>
       <!--verificar pruebas en vivo-->
       <?php if ($simulacros_estudiante != false) {
+
         ?>
          <div id="indice_pag">
           <center><p>Simulacros en Vivo del estudiante</p></center>
@@ -76,7 +77,7 @@ $i = 0;
             </script>
 
             </td>
-            <td><center><button type="button" class="btn btn-danger btn-sm">Realizar Simulacro</button></center></td>
+            <td><center><a href="<?=base_url();?>estudiante/Simulacros/realizarSimulacro/<?=$simulacros_estudiante[$i]->id;?>"><button type="button" class="btn btn-danger btn-sm">Realizar Simulacro</button></a></center></td>
         </tr>
     <?php }?>
   </tbody>
