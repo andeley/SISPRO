@@ -2,24 +2,54 @@
 <div id="page_content">
       
 <div class="container-fluid">
+    
+
     <div id="indice_pag">          
-        <center><p>Perfil del Estudiante</p></center>
-    </div>     
+        <p>Gestionar >Perfil</p>
+    </div>      
     
     <div id="cotenido_pag">          
-      
-      <b>Nombre:</b>  <?=$info -> nombre?> <br><br>
-      <b>Id:</b>  <?=$info -> id?> <br><br>
-      <b>Código:</b>  <?=$info -> codigo?> <br><br>
-      <b>Correo Electrónico: </b> <?=$info -> correo?> <br><br>
-      <b>Programa Académico:</b>  <?=$programa;?> <br><br>
-      <b>Semestre:</b>  <?=$semestre;?> <br><br>
-
-    </div>              
-</div>
     
+    <div class="cuadro_prin_est_per">
+                  
+           <div id="cuadro_content_est_per">
+            <div id="cuadro_uno_est_per">
+                <p>Información basica</p>
+            </div>
+            
+           <div id="division">
+            <div id="cuadro_dos_est_per">
+                <ul>
+                    <li><span class="info_basic_est_per">Nombre: </span> <br> <?=$info -> nombre?></li>
+                    <li><span class="info_basic_est_per">Codigo</span><br><?=$info -> codigo?></li>
+                    <li><span class="info_basic_est_per">Email: </span><br><?=$info -> correo?></li>
+                </ul>
+            </div>
+<div id="cuadro_tres_est_per">
+   <ul>
+                    <li><span class="info_basic_est_per">Programa academico:</span><br><?=$semestre;?></li>
+                    <li><span class="info_basic_est_per">Semestre:</span><br><?=$programa;?></li>
+                    <li><span class="info_basic_est_per">Función:</span><br>Estudiante</li>
+                </ul>
+</div>
+
+            </div>
+        </div>
+
+ 
+
+
+    </div> 
+
 </div>
    
+
+
+</div>
+
+
+
+   </div>
    <!-------------------------------------->
     <footer class="small text-center text-white-50">
       <div class="container">
@@ -40,3 +70,8 @@
   </body>
 
 </html>
+
+
+        
+      
+    
