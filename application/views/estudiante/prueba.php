@@ -119,10 +119,7 @@
                 <div class="pru_res">
       <?php $i = 97; //a ?>
       <div class="container">
-     <div class="row">
-       <div class="col-xl-1"></div>
-       <div class="col-xl-10">
-          <?php foreach ($opciones [$p -> id_pregunta] as $opcion): ?>
+      <?php foreach ($opciones [$p -> id_pregunta] as $opcion): ?>
   
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label style="color: #6E6E6E;" class="form-check-label" for="exampleCheck1">
@@ -130,9 +127,6 @@
     </label><br>
   
   <?php endforeach; ?><!--for opc rta-->
-       </div>
-       <div class="col-xl-1"></div>
-     </div>
 
                     
                 </div>
