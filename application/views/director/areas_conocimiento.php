@@ -4,6 +4,8 @@
             <div id="indice_pag">
                 <p>Director > <a href="<?=base_url();?>director/Areas">Areas</a></p>
             </div>
+
+
             <div id="cotenido_pag">
 
                     <?php
@@ -14,14 +16,14 @@
                         }
                     ?>
 
-                     <div class="cuadro_prin">
-                        <div id="cuadro_content">
-                            <div id="cuadro_uno">
-                                <div id="indice_pag">
+                     <div class="cuadro_prin_dir_areas_uno">
+                        <div id="cuadro_content_dir_areas_uno">
+                            <div id="cuadro_uno_dir_areas_uno">
+                                <div id="indice_pag_dir_areas_uno">
                                     <center><p>Registrar Nueva Area</p></center>
                                 </div>
                                 </div>
-                                <div id="cuadro_dos">
+                                <div id="cuadro_dos_dir_areas_uno">
                                 <form id="Area" action="<?php echo base_url(); ?>Director/Areas/registrar" method="post">
                                      <center><p class="login-box-msg">Nombre del area</p></center>
                                     <input type="text" class="form-control" style="border-radius: 3px;" placeholder="Ingrese nombre area" name="nombreA" required>
@@ -39,7 +41,7 @@
                     <center><p>Areas de Conocimiento</p></center>
                 </div>  
 
-                            <div class="table_">
+                            <div class="table_dir_areas">
                            <table class="table table-hover">
               <thead>
                 <tr id="tit_table">
@@ -69,6 +71,8 @@
             <div id="indice_pag">
                     <center><p>Opciones del Usuario - Relacionarse a un Area</p></center>
                 </div>
+                       <div class="cuadro_prin_dir_areas_dos">
+                        <div id="cuadro_content_reg_are_dos">
                         <form method="post" action="<?php echo base_url(); ?>director/Areas/registrarArea?>">
                             <div class="container-fluid">
                                 <div class="row">
@@ -99,11 +103,8 @@
                                 </div>
                             </div>
                         </form>
-
-
-
-
-
+                      </div>
+                    </div>
             </div>
         </div>
 </div>

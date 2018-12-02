@@ -72,14 +72,15 @@ if ($docentes_a) {?>
                         <div id="indice_pag">
                         <center><p>Opciones Director de Programa</p></center>
                       </div>
-                        <div class="cuadro_prin">
-                        <div id="cuadro_content">
-                            <div id="cuadro_uno">
+
+                        <div class="cuadro_prin_dir_doc">
+                        <div id="cuadro_content_dir_doc">
+                            <div id="cuadro_uno_dir_doc">
                                 <div id="indice_pag">
                                     <center><p>Asignar Nuevo director de <?php echo $programa; ?> <span class="far fa-question-circle" title="Al asignar un nuevo director de plan de estudios, se cerrará la sesión y obtendrás privilegios como docente del programa"> </span></p></center>
                                 </div>
                                 </div>
-                                <div id="cuadro_dos">
+                                <div id="cuadro_dos_dir_doc">
                                 <form id="nuevoDirector" action="<?php echo base_url(); ?>Director/usuarios/Docentes/AsignarNuevoDirector" method="post">
                                     <center><p></p></center>
                                     <?php

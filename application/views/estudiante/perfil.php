@@ -5,7 +5,7 @@
     
 
     <div id="indice_pag">          
-        <p>Gestionar >Perfil</p>
+        <p>Estudiante >Perfil</p>
     </div>      
     
     <div id="cotenido_pag">          

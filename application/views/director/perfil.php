@@ -28,13 +28,6 @@
             </div>
 
             <div id="cuadro_tres_dir_per">
-                <!--<ul>
-                    <li><span class="info_basic_dir_per">Nombre: </span> <br> <?=$info -> nombre?></li>
-                    <li><span class="info_basic_dir_per">Codigo</span><br><?=$info -> codigo?></li>
-                    <li><span class="info_basic_dir_per">Email: </span><br><?=$info -> correo?></li>
-                    <li><span class="info_basic_dir_per">Programa academico:</span><br><?=$programa;?></li>
-                    <li><span class="info_basic_dir_per">Función:</span><br>Director de programa</li>
-                </ul>-->
 
                  <?php if ($areas_doc != false) {
         ?>

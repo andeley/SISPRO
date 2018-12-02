@@ -10,13 +10,13 @@
   ?>
 
           <!--Opcion registrar pregunta-->
-          <div class="cuadro_prin">
+          <div class="cuadro_prin_dir_simulacro_reg">
 
-         <div id="cuadro_content">
-          <div id="cuadro_uno">
+         <div id="cuadro_content_dir_simulacro_reg">
+          <div id="cuadro_uno_dir_simulacro_reg">
               <p>Opciones Simulacros</p>
           </div>
-          <div id="cuadro_dos">
+          <div id="cuadro_dos_dir_simulacro_reg">
                <form>
                   <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Registrar Nuevo Simulacro</button>
                </form>
@@ -83,6 +83,7 @@ date_default_timezone_set('America/Bogota');
 
       <!-- Modal content-->
   <div class="modal-content modal_per ">
+   
    <div class="reg_sim">
      <button type="button" class="close" data-dismiss="modal">&times;</button>
       <div class="modal-header">
@@ -301,7 +302,7 @@ endforeach;?>
     </div>
     <div class="modal-footer">
 
-      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      <button type="button" class="btn btn_reg_pre" data-dismiss="modal">Cerrar</button>
     </div>
   </div>
             </div>

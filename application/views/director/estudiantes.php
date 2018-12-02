@@ -38,16 +38,16 @@
 
         <!-- Modal content-->
     <div class="modal-content modal_per ">
-     <div class="reg_sim">
+     <div class="ver_datos_est">
        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <div class="modal-header">
 
-        <div id="reg_sim_titu_modal">
+        <div id="ver_datos_est_titu_modal">
                 <h3>Detalle del Estudiante</h3>
         </div>
       </div>
        <div class="modal-body">
-       <div id="reg_sim_content">
+       <div id="ver_datos_est_content">
             detalle estudiante <?php echo $estudiante-> nombre; ?>
       </div>
       </div>

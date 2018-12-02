@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 body {
     overflow-x: hidden;
-    background-image: url(../img/bg_areas.jpg);
+    background-image: url(../../../img/bg_areas.jpg);
     background-position:center;
     background-repeat:no-repeat;
     background-attachment:fixed;
