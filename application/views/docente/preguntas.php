@@ -113,7 +113,7 @@ if ($enunciado != "no existe enunciado") {
 <?php
 }
     ?>
-<p><?=$info_pregunta->descripcion?></p>
+<p><?=$info_pregunta-> descripcion?></p>
 <?php
 $i = 97;
     foreach ($opciones_respuesta as $o) {

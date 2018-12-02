@@ -21,7 +21,6 @@ class Preguntas extends CI_Controller { //autenticar
 		//cargar preguntas de los profesores de ingenieria de sistemas que aun no han sido aprobadas
 		$data['preguntas_espera'] = $this-> Preguntas_model-> get_preguntas_programa($programa);
 		//fin modal aprobar preguntas
-
 		$data['todas_las_areas'] = $this-> Areas_model->getAreas(); //todas las areas
 		$data['preguntas']= $this-> Preguntas_model->getPreguntas($id); //preguntas del docente
 		$data['user']= $this-> Usuarios_model->getDirectorB($id); //datos basicos del user
@@ -134,7 +133,7 @@ class Preguntas extends CI_Controller { //autenticar
 	public function aprobar_pregunta(){//aprobar las preguntas realizadas por un docente
 		$id_pregunta= $this->uri-> segment(4);
 		$this-> Preguntas_model->aprobarPregunta($id_pregunta);
-		redirect(base_url()."director/Preguntas/gestionar");
+		redirect(base_url()."director/Preguntas");
 	}
 
 	public function ver_preguntas_director(){

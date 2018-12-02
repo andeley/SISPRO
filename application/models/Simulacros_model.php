@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Simulacros_model extends CI_Model {
 
 public function getPreguntasAreaS($id_area, $id_simulacro){ //extraer preguntas del area simulacro
-	$this->db->select('*');
+	$this->db->select('e.id AS id_enunciado, e.contenido AS enunciado, p.id AS id_pregunta, p.id_area, p.descripcion, p.estado, p.id_docente_cargo, p.tipo');
 	$this->db->from('pregunta p');
-	$this->db->join('simulacro_pregunta sm', 'sm.id_pregunta = p.id');
-	$this->db->join('simulacro s', 's.id = sm.id_simulacro');
-    $this->db->join('area_simulacro as', 'as.id_simulacro = s.id');
-    $this->db->where('as.id_area='.$id_area);
+	$this->db->join('enunciado e' , 'p.id_enunciado = e.id');
+    $this->db->join('simulacro_pregunta sm', 'sm.id_pregunta = p.id');
+
+    $this->db->where('p.id_area='.$id_area);
     $this->db->where('sm.id_simulacro='.$id_simulacro);
 
 	 $resultados = $this-> db->get();

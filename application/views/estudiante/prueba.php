@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+<!--Vista realización de la prueba-->
 
   <head>
 
@@ -8,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-      <title>SISPRO - Materias</title>
+      <title>SISPRO - Simulacros</title>
 
     <!-- Bootstrap core-->
     <link href="<?php echo base_url(); ?>assets/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -73,86 +74,86 @@
       <!-------------CUADRO------------------->
       <form>
         <?php if($areas_simulacro): ?>
+          
           <?php foreach ($areas_simulacro as $as):?>
 
-          <!--------------------TEMA 1----------------------->
+
+
+
+          <!--------------------Mostrar en un for las preguntas del area de conocimiento----------------------->
                  <div class="cuadro_prin">
                   
                   
            <div id="cuadro_content">
                 <div class="pregunta_prueba">
                <div id="cuadro_uno">
-                <p>Fundamentos de programación</p>
+                <p><?php echo $as -> nombre; ?></p>
             </div>
             
             <div id="cuadro_dos">
-                <!-----------PREGUNTA UNO--------------->
+              <?php $preguntas = $preguntas_area[$as -> id]; ?>
+              <?php if($preguntas): ?>
+                
+                <!--mostrar preguntas de seleccion Múltiple-->
+                <br>
+                <p class="tipo_preg"><b><center>Pregunta(s) de Selección Múltiple con única respuesta</center></b></p>
+                <?php $n_pregunta = 0; ?>
+                <?php foreach ($preguntas as $p): ?>
+                <!-----------Preguntas del Area--------------->
+
                 <div class="pru_preg">
-                     <p class="tipo_preg">1. Pregunta con unica respuesta</p>
-                     <p class="enun_preg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                       <?php if($p -> tipo == "sm"):?>
+                     <p class="enun_preg">
+                        <b>Lea el siguiente enunciado.</b> <br>
+                       <?php echo ($p-> enunciado); ?>
+                       <?php echo ("<b>".++$n_pregunta.". </b>".$p-> descripcion); ?>
+                     </p>
                 
-                
+                <!--Opciones de respuesta-->
+                <?php if($opciones [$p -> id_pregunta]): ?>
+                  <br>
                 <div class="pru_res">
-                    
-
-  <div class="form-check">
+      <?php $i = 97; //a ?>
+      <?php foreach ($opciones [$p -> id_pregunta] as $opcion): ?>
+  <div class="form-group">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label style="color: #6E6E6E;" class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label style="color: #6E6E6E;"  class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label style="color: #6E6E6E;"  class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+    <label style="color: #6E6E6E;" class="form-check-label" for="exampleCheck1">
+      <?php echo $opcion -> descripcion; ?>
+    </label>
   
+  <?php endforeach; ?><!--for opc rta-->
 
                     
                 </div>
-                
-            </div>
-            
-            <!------------PREGUNTAS DOS------------------------->
-            <div class="pru_preg">
-                     <p class="tipo_preg">2. Pregunta con unica respuesta</p>
-                     <p class="enun_preg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                
-                
-                <div class="pru_res">
-                    
-
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label style="color: #6E6E6E;" class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label style="color: #6E6E6E;"  class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label style="color: #6E6E6E;"  class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  
-
-                    
+              <?php endif; ?><!--fin if existencia opc-->
                 </div>
-                
             </div>
+            <?php endif; ?><!--fin if existencia pregunta-->
+
+             <?php endforeach; ?><!--for recorrer preguntas-->
             
             </div>
-            </div>
-        </div>
+            <?php endif; ?><!--if existencia de preguntas en el area-->
+            
+            
+        
            
-            </div>
-        <?php  endforeach; ?>
+            
+            
+        
+        
+        
+        </div>
+        </div>
+      </div>
+      <?php  endforeach; ?>
         <?php endif; ?>
+        
 
         
          <button id="envio_info" type="submit" class="btn ">Enviar</button>
-    </form>  
+    </form> 
+
     </div> 
               
 </div>

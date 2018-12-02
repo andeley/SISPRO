@@ -37,20 +37,26 @@ class Simulacros extends CI_Controller {
 		$this->load->view('estudiante/simulacros', $data);
 	}
 
-	public function realizarSimulacro(){
+	public function realizarSimulacro(){ //cargar vista simulacro en vivo
 		$id=$this->session->userdata("id");
 		$id_simulacro=$this->uri-> segment(4);
 		$programa_academico = $this-> Usuarios_model -> getUsuarioPrograma($id);
 		$areas_simulacro = $this -> Simulacros_model -> getAreasSimulacro($id_simulacro);
 		$preguntas_area = array();
+		$opciones= array();
 
 		if($areas_simulacro){
 				foreach ($areas_simulacro as $area) {
 					//listar los enunciados del area
-					$preguntas_area[$area -> id] = array ();
-					$preguntas_area[$area -> id]["enunciados"] = $this -> Simulacros_model -> getEnunciadosAreaS($area -> id, $id_simulacro); //guarda array con enunciados
-					$preguntas_area[$area -> id]["preguntas_area"] = $this -> Simulacros_model -> getPreguntasAreaS($area -> id, $id_simulacro); //guarda array con preguntas del area
+					$preguntas_area[$area -> id] = $this -> Simulacros_model -> getPreguntasAreaS($area -> id, $id_simulacro); //guarda array con preguntas del area
+					if($preguntas_area[$area -> id]){
+						foreach ($preguntas_area[$area -> id]as $pregunta) {
+							//almacenar opciones de respuesta
+							$opciones[$pregunta -> id_pregunta] = $this-> Preguntas_model -> getOpcionesRespuesta($pregunta -> id_pregunta);
+						}
+					}
 				}
+				$data['opciones'] = $opciones;
 				$data['areas_simulacro'] = $areas_simulacro;
 				$data['preguntas_area'] = $preguntas_area;
 		}else{
@@ -64,7 +70,7 @@ class Simulacros extends CI_Controller {
 		$this->load->view('estudiante/prueba', $data);
 	}
 
-	public function Registarse(){
+	public function Registrarse(){
 		$inscripcion["id_simulacro"]= $this->uri-> segment(4);
 		$inscripcion["id_estudiante"]=$this->session->userdata("id");
 		$this-> Simulacros_model->registrarEstudianteSimulacro($inscripcion);

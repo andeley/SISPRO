@@ -156,7 +156,7 @@ $i = 0;
       </div>
       </div>
       <div class="modal-footer">
-        <a href="<?=base_url();?>estudiante/Simulacros/Registarse/<?=$s->id;?>"><button type="button" class="btn btn-danger">Registrarse</button></a>
+        <a href="<?=base_url();?>estudiante/Simulacros/Registrarse/<?=$s->id;?>"><button type="button" class="btn btn-danger">Registrarse</button></a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
