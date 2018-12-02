@@ -10,7 +10,7 @@
 if ($docentes_a) {?>
 
                   <div id="indice_pag">
-                    <center><p>Aprobación de nuevos Docentes</p></center>
+                    <center><p>Aprobacion de nuevos Docentes</p></center>
                 </div>
                                         <div class="table_">
                                        <table class="table table-hover">
