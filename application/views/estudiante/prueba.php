@@ -90,10 +90,14 @@
                 <p><?php echo $as -> nombre; ?></p>
             </div>
             
-            <div id="cuadro_dos">
+
+
+
+
+              
               <?php $preguntas = $preguntas_area[$as -> id]; ?>
               <?php if($preguntas): ?>
-                
+                <div id="cuadro_dos">
                 <!--mostrar preguntas de seleccion Múltiple-->
                 <br>
                 <p class="tipo_preg"><b><center>Pregunta(s) de Selección Múltiple con única respuesta</center></b></p>
@@ -114,19 +118,21 @@
                   <br>
                 <div class="pru_res">
       <?php $i = 97; //a ?>
+      <div class="form-grou">
       <?php foreach ($opciones [$p -> id_pregunta] as $opcion): ?>
-  <div class="form-group">
+  
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label style="color: #6E6E6E;" class="form-check-label" for="exampleCheck1">
       <?php echo $opcion -> descripcion; ?>
-    </label>
+    </label><br>
   
   <?php endforeach; ?><!--for opc rta-->
 
                     
                 </div>
-              <?php endif; ?><!--fin if existencia opc-->
                 </div>
+              <?php endif; ?><!--fin if existencia opc-->
+                
             </div>
             <?php endif; ?><!--fin if existencia pregunta-->
 
@@ -135,14 +141,7 @@
             </div>
             <?php endif; ?><!--if existencia de preguntas en el area-->
             
-            
-        
-           
-            
-            
-        
-        
-        
+          
         </div>
         </div>
       </div>
@@ -178,7 +177,7 @@
     <script src="<?php echo base_url(); ?>assets/template/js/grayscale.min.js"></script>
    
    
-   <!-- Bootstrap core JavaScript-------------------------------------------------- --> 
+   
   </body>
 
 </html>
