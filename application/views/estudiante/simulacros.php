@@ -77,7 +77,9 @@ $i = 0;
             </script>
 
             </td>
-            <td><center><a href="<?=base_url();?>estudiante/Simulacros/realizarSimulacro/<?=$simulacros_estudiante[$i]->id;?>"><button type="button" class="btn btn-danger btn-sm">Realizar Simulacro</button></a></center></td>
+            
+
+            <td><center><a href="<?=base_url();?>estudiante/Simulacros/realizarSimulacro/<?=$simulacros_estudiante[$i]->id;?>"><button type="button" <?php if(count($calificaciones)>0  && array_search($simulacros_estudiante[$i]->id, array_column($calificaciones, 'id_simulacro'))>-1){ ?> disabled <?php } ?> class="btn btn-danger btn-sm">Realizar Simulacro</button></a></center></td>
         </tr>
     <?php }?>
   </tbody>
@@ -155,8 +157,11 @@ $i = 0;
             <?php } ?>
       </div>
       </div>
-      <div class="modal-footer">
-        <a href="<?=base_url();?>estudiante/Simulacros/Registrarse/<?=$s->id;?>"><button type="button" class="btn btn-danger">Registrarse</button></a>
+      <div class="modal-footer">  
+        <a href="<?=base_url();?>estudiante/Simulacros/Registrarse/<?=$s->id;?>"><button type="button" class="btn btn-danger" <?php if($simulacros_estudiante && array_search($s -> id, array_column($simulacros_estudiante, 'id'))>-1){ ?> disabled <?php } ?>>
+           Registrarse
+    </button></a>
+    
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>
     </div>

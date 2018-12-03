@@ -27,13 +27,28 @@ class Simulacros extends CI_Controller {
 		$data['tipo']= "General";
 		//cargar todos los simulacros registrados por el estudiante
 		$data['simulacros_estudiante']= $this-> Simulacros_model->getSimulacrosEstudiante($id);	
+		$calificacion = array(); //verificar que el estudiante ya haya realizado ese simulacro
+
+		if($data['simulacros_estudiante']){
+			
+			foreach ($data['simulacros_estudiante'] as $s) {
+				
+				$val = $this->Simulacros_model->getCalificaciones_se($s-> id, $id);
+				if($val){
+					foreach ($val as $v) {
+						array_push($calificacion, $v);
+					}
+				}		
+			}
+		}
 		if($data['simulacros']){
 			$areas = array();
 			foreach ($data['simulacros'] as $s) {
-				array_push($areas, $this->Simulacros_model->getAreasSimulacro($s-> id));	
+				array_push($areas, $this->Simulacros_model->getAreasSimulacro($s-> id));
 			}
 			$data['areas_simulacros'] = $areas;
 		}	
+		$data['calificaciones'] = $calificacion;
 		$this->load->view('estudiante/simulacros', $data);
 	}
 
@@ -46,6 +61,40 @@ class Simulacros extends CI_Controller {
 		$this -> Simulacros_model->anadir_rta($id_opcion, $id_pregunta, $id, $id_simulacro);
 		//$this->load->view('estudiante/header');
 
+	}
+
+	public function guardar_simulacro(){//generar y guardar los resultados de la prueba saber para el estudiante
+		$id=$this->session->userdata("id");
+		$id_simulacro=$this->uri-> segment(4);
+		$areas_simulacro = $this -> Simulacros_model -> getAreasSimulacro($id_simulacro);
+		if($areas_simulacro){
+			//extraer preguntas area y respuestas-area
+			foreach ($areas_simulacro as $area) {
+				$preguntas = $this -> Simulacros_model -> getPreguntasAreaS($area -> id, $id_simulacro);
+				$respuestas_estudiante = $this -> Simulacros_model ->getRespuestasEstudianteArea( $area -> id, $id_simulacro, $id);
+
+				$n_respuestas_est = 0; //respuestas correctas del estudiante
+				if($respuestas_estudiante){
+					$n_respuestas_est = count($respuestas_estudiante);
+					foreach ($respuestas_estudiante as $r) {
+						if($r -> respuesta == "no")$n_respuestas_est--;
+					}
+				}
+					$n_preguntas = count($preguntas);
+					$calificacion = round(($n_respuestas_est*5.0)/$n_preguntas, 2);
+
+					//guardar calificación del estudiante
+					$c = array();
+					$c['id_simulacro'] = $id_simulacro;
+					$c['id_estudiante'] = $id;
+					$c['id_area'] = $area -> id;
+					$c['puntaje'] = $calificacion;
+					$c['p_correctas'] = $n_respuestas_est;
+					$c['p_totales'] = $n_preguntas;
+					$this -> Simulacros_model -> guardar_calificacion_est($c);	
+			}
+		}
+		redirect(base_url()."estudiante/Simulacros");
 	}
 
 	public function realizarSimulacro(){ //cargar vista simulacro en vivo

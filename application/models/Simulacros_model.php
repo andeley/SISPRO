@@ -3,6 +3,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Simulacros_model extends CI_Model {
 
+public function getCalificaciones_se($id_simulacro, $id_estudiante){
+	$this->db->select('id_simulacro');
+	$this->db->from('calificacion_estudiante');
+	$this->db->where('id_simulacro='.$id_simulacro);
+	$this->db->where('id_estudiante='.$id_estudiante);
+
+	$resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;
+}
+
+public function guardar_calificacion_est($c){
+	return $this->db->insert('calificacion_estudiante', $c);	
+}
+
+public function getRespuestasEstudianteArea($id_area, $id_simulacro, $id_est){
+	$this->db->select('er.id_estudiante, er.id_simulacro, er.id_pregunta, er.id_opcion, er.respuesta');
+	$this->db->from('estudiante_respuestas er');
+	$this->db->join('pregunta p' , 'p.id= er.id_pregunta');
+	
+	$this->db->where('p.id_area='.$id_area);
+	$this->db->where('er.id_estudiante='.$id_est);
+	$this->db->where('er.id_simulacro='.$id_simulacro);
+
+	 $resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;
+
+}
+
 public function  preguntas_respondidas($id_simulacro, $id){
 	$this->db->select('*');
 	$this->db->from('estudiante_respuestas');

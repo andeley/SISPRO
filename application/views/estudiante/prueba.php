@@ -49,7 +49,8 @@
                        window.onload = function(e){
 
                           document.getElementById("pro").style.width = "<?php echo $porcentaje ?>"+"%";
-                          
+                          if(p_totales == p_respondidas) document.getElementById("envio_info").disabled  = false;
+                          else document.getElementById("envio_info").disabled  = true;
 
                       var fin = "<?php echo $simulacro-> fecha_fin; ?>";
                       var $clock = $('#diferencia'),
@@ -91,7 +92,7 @@
           </div>
           <div class="col-md-3">
              <center>
-              <div class="progress" style="height: 13px; align-self: center; margin-top: 32px;">
+              <div class="progress" style="height: 13px; align-self: center; margin-top: 35px;">
               <div class="progress-bar" id="pro" role="progressbar" style="width: 0%; background-color: #7F072A;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo $porcentaje; ?> %</div>
               </div>
              </center>
@@ -216,7 +217,7 @@
       <?php  endforeach; ?>
         <?php endif; ?>
 
-         <button id="envio_info" type="submit" class="btn ">Finalizar</button>
+         <button id="envio_info" type="submit" >Finalizar</button>
     </form> 
 
     </div> 
@@ -258,6 +259,7 @@
   var p_respondidas = "<?php if($preguntas_respondidas) echo count($preguntas_respondidas); else echo 0; ?>";
 
 
+
 $(document).ready( function() {
 $('input[type=radio]').change(function(e) {
   var ruta = "<?php echo base_url(); ?>estudiante/Simulacros/anadir_rta/"+$(this).val()  ;
@@ -283,8 +285,8 @@ $('input[type=radio]').change(function(e) {
                    
                    toastr.success('Respuesta Guardada'+resp);
 
-                   if(t==100){
-                    
+                   if(parseInt(t)==100){
+                      document.getElementById("envio_info").disabled  = false;
                    }
             }
         });
