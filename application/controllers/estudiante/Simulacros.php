@@ -73,6 +73,16 @@ class Simulacros extends CI_Controller {
 				$data['areas_simulacro'] = $areas_simulacro;
 				$data['preguntas_area'] = $preguntas_area;
 				$data['num_preguntas'] = $num_preguntas;
+
+				$preguntas_respondidas = $this -> Simulacros_model -> preguntas_respondidas($id_simulacro, $id);
+				$total =0;
+				
+				if($preguntas_respondidas){
+					$total = count($preguntas_respondidas);
+				}
+				
+				$data['porcentaje'] = (int) (($total*100)/$num_preguntas);
+				$data['preguntas_respondidas'] = $preguntas_respondidas;
 		}else{
 				$data['areas_simulacro'] = false;
 				$data['preguntas_area'] = false;

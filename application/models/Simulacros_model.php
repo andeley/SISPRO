@@ -3,6 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Simulacros_model extends CI_Model {
 
+public function  preguntas_respondidas($id_simulacro, $id){
+	$this->db->select('*');
+	$this->db->from('estudiante_respuestas');
+	$this->db->where('id_estudiante='.$id);
+	$this->db->where('id_simulacro='.$id_simulacro);
+	
+	 $resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;	
+
+}
+
 public function anadir_rta($id_opcion, $id_pregunta, $id_estudiante, $id_simulacro){
 	//buscar si la opc escogida es la correcta
 	$this->db->select('correcta');

@@ -48,6 +48,9 @@
                       //cargar tiempo que falta para que finalice el simulacro
                        window.onload = function(e){
 
+                          document.getElementById("pro").style.width = "<?php echo $porcentaje ?>"+"%";
+                          
+
                       var fin = "<?php echo $simulacro-> fecha_fin; ?>";
                       var $clock = $('#diferencia'),
                           eventTime = moment(fin, 'YYYY-MM-DD HH:mm:ss').unix(),
@@ -89,7 +92,7 @@
           <div class="col-md-3">
              <center>
               <div class="progress" style="height: 13px; align-self: center; margin-top: 32px;">
-              <div class="progress-bar" id="pro" role="progressbar" style="width: 0%; background-color: #7F072A;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+              <div class="progress-bar" id="pro" role="progressbar" style="width: 0%; background-color: #7F072A;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo $porcentaje; ?> %</div>
               </div>
              </center>
           </div>
@@ -183,8 +186,11 @@
       <?php foreach ($opciones [$p -> id_pregunta] as $opcion): ?>
     
     <label style="color: #6E6E6E;" class="form-check-label" for="exampleCheck1">
+    <?php 
+    if(!$preguntas_respondidas) $key = -1;
+    else $key = array_search($opcion-> id, array_column($preguntas_respondidas, 'id_opcion')); ?>
+      <input type="radio" name="check<?=$p-> id_pregunta;?>" <?php if($key>-1){ ?> checked <?php }?>   class="form-check-input" id="exampleCheck1" value="<?=$simulacro_id."/".$p->id_pregunta."/".$opcion-> id;?>" />
 
-      <input type="radio" name="check<?=$p-> id_pregunta;?>" class="form-check-input" id="exampleCheck1" value="<?=$simulacro_id."/".$p->id_pregunta."/".$opcion-> id;?>" />
 
       <b><?php echo(chr($i++)).". "; ?></b>
       <?php echo $opcion -> descripcion; ?>
@@ -240,9 +246,14 @@
 <!--Guardar Automáticamebte la respuesta-->
 <script type="text/javascript">
 
-  var respuestas_id = ["."];
+  //llenar porcentaje
+  var porc = "<?php echo $porcentaje ?>";
+
+
+
+  var respuestas_id = ["."]; //error aca
   var p_totales = "<?php echo $num_preguntas; ?>";
-  var p_respondidas = 0;
+  var p_respondidas = "<?php if($preguntas_respondidas) echo count($preguntas_respondidas); else echo 0; ?>";
 
 
  $(document).ready( function() {
@@ -256,15 +267,15 @@ $('input[type=radio]').change(function(e) {
                     data: $(this).serialize(),
                     success:function(resp){
 
+                     // arreglar aca
                     if(respuestas_id.indexOf(nam) == -1){
                         p_respondidas++;
                         respuestas_id.push(nam);
-                        var t = ((p_respondidas*100)/p_totales);
-                         $("#pro").animate({
-                              width: t+"%"
-                          }, 500);
-                         document.getElementById("pro").innerHTML  = parseInt(t)+"%";
+                        
                     }
+                    var t = ((p_respondidas*100)/p_totales);
+                        document.getElementById("pro").style.width = t+"%";
+                        document.getElementById("pro").innerHTML  = parseInt(t)+"%";
                    
             }
         });
