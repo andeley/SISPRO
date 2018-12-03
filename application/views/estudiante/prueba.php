@@ -189,8 +189,8 @@
     <?php 
     if(!$preguntas_respondidas) $key = -1;
     else $key = array_search($opcion-> id, array_column($preguntas_respondidas, 'id_opcion')); ?>
-      <input type="radio" name="check<?=$p-> id_pregunta;?>" <?php if($key>-1){ ?> checked <?php }?>   class="form-check-input" id="exampleCheck1" value="<?=$simulacro_id."/".$p->id_pregunta."/".$opcion-> id;?>" />
-
+      
+      <input type="radio" name="<?=$p-> id_pregunta;?>" <?php if($key>-1){ ?> checked <?php }?>   class="form-check-input" id="exampleCheck1" value="<?=$simulacro_id."/".$p->id_pregunta."/".$opcion-> id;?>" />
 
       <b><?php echo(chr($i++)).". "; ?></b>
       <?php echo $opcion -> descripcion; ?>
@@ -241,6 +241,8 @@
 
     <!-- Custom scripts for this template -->
     <script src="<?php echo base_url(); ?>assets/template/js/grayscale.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
    
 
 <!--Guardar Automáticamebte la respuesta-->
@@ -256,10 +258,11 @@
   var p_respondidas = "<?php if($preguntas_respondidas) echo count($preguntas_respondidas); else echo 0; ?>";
 
 
- $(document).ready( function() {
+$(document).ready( function() {
 $('input[type=radio]').change(function(e) {
   var ruta = "<?php echo base_url(); ?>estudiante/Simulacros/anadir_rta/"+$(this).val()  ;
   var nam = $(this).attr("name");
+  var respondidas = "<?php if($preguntas_respondidas) foreach($preguntas_respondidas as $pp) echo $pp-> id_pregunta."-"; else echo ".";?>";
 
                 $.ajax({
                     url:  ruta,
@@ -267,24 +270,56 @@ $('input[type=radio]').change(function(e) {
                     data: $(this).serialize(),
                     success:function(resp){
 
-                     // arreglar aca
-                    if(respuestas_id.indexOf(nam) == -1){
+                    var ya_m = respondidas.indexOf(nam);
+                    if(respuestas_id.indexOf(nam) == -1 && ya_m == -1 ){
                         p_respondidas++;
                         respuestas_id.push(nam);
-                        
+                       
+                        ya_m+="nam"+"-";
                     }
                     var t = ((p_respondidas*100)/p_totales);
                         document.getElementById("pro").style.width = t+"%";
                         document.getElementById("pro").innerHTML  = parseInt(t)+"%";
                    
+                   toastr.success('Respuesta Guardada'+resp);
+
+                   if(t==100){
+                    
+                   }
             }
         });
                 e.preventDefault();
             });
         });
 
+        //opciones notoficacion rtas
+       toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-left",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "400",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          }
 
 </script>
+
+<style type="text/css">
+    #toast-container > .toast-success {
+    background-image: none;
+    background-color: #900C3F;
+    color: #FFFFFF;
+}
+</style>
    
   </body>
 
