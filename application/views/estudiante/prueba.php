@@ -32,17 +32,75 @@
     <!-----------MENU--------------->
      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a  class="navbar-brand js-scroll-trigger" href="#page-top">
-    <img src="<?php echo base_url(); ?>assets/template/img/logo_blanco.png" alt="">        
-            
-            
+        <div class="row">
+          <div class="col-md-3">
+            <a  class="navbar-brand js-scroll-trigger" href="#page-top" style="margin-top: 15px;">
+    <img src="<?php echo base_url(); ?>assets/template/img/logo_blanco.png" alt="">         
         </a>
+          </div>
+          <div class="col-md-2" style="text-align: center;">
+            
+           <div id="diferencia" class=" nav-link" >
+         
+             <!--js con tiempo de finalización-->
+             <script type="text/javascript">
+
+                      //cargar tiempo que falta para que finalice el simulacro
+                       window.onload = function(e){
+
+                      var fin = "<?php echo $simulacro-> fecha_fin; ?>";
+                      var $clock = $('#diferencia'),
+                          eventTime = moment(fin, 'YYYY-MM-DD HH:mm:ss').unix(),
+                          currentTime = moment().unix(),
+                          diffTime = eventTime - currentTime,
+                          duration = moment.duration(diffTime * 1000, 'milliseconds'),
+                          interval = 1000;
+
+                      // if time to countdown
+                      if(diffTime > 0) {
+
+                          var $d = $('<div class="days" ></div>').appendTo($clock),
+                              $h = $('<div class="hours" ></div>').appendTo($clock),
+                              $m = $('<div class="minutes" ></div>').appendTo($clock),
+                              $s = $('<div class="seconds" ></div>').appendTo($clock);
+
+                          setInterval(function(){
+
+                              duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
+                              var d = moment.duration(duration).days(),
+                                  h = moment.duration(duration).hours(),
+                                  m = moment.duration(duration).minutes(),
+                                  s = moment.duration(duration).seconds();
+
+                             d = $.trim(d).length === 1 ? '0' + d : d;
+                             h = $.trim(d).length === 1 ? '0' + h : h;
+                             m = $.trim(m).length === 1 ? '0' + m : m;
+                             s = $.trim(s).length === 1 ? '0' + s : s;
+
+                             $d.text(h+" : "+m+" : "+s);
+                          }, interval);
+                      }
+                  };
+            </script>
+
+
+           </div>
+          </div>
+          <div class="col-md-3">
+             <center>
+              <div class="progress" style="height: 13px; align-self: center; margin-top: 32px;">
+              <div class="progress-bar" id="pro" role="progressbar" style="width: 0%; background-color: #7F072A;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+              </div>
+             </center>
+          </div>
+          <div class="col-md-4">
+          
          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">  
+          <ul class="navbar-nav ml-auto"> 
              <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?=base_url();?>estudiante/Preguntas">Preguntas</a>
             </li>
@@ -57,10 +115,15 @@
             </li>
           </ul>
         </div>
+          </div>
+        </div>
       </div>
     </nav>
 
+
 <div id="page_content">
+
+    
       
 <div class="container-fluid">
    <div id="titulo_programa">          
@@ -177,15 +240,32 @@
 <!--Guardar Automáticamebte la respuesta-->
 <script type="text/javascript">
 
+  var respuestas_id = ["."];
+  var p_totales = "<?php echo $num_preguntas; ?>";
+  var p_respondidas = 0;
+
+
  $(document).ready( function() {
 $('input[type=radio]').change(function(e) {
   var ruta = "<?php echo base_url(); ?>estudiante/Simulacros/anadir_rta/"+$(this).val()  ;
+  var nam = $(this).attr("name");
+
                 $.ajax({
                     url:  ruta,
                     type:"POST",
                     data: $(this).serialize(),
                     success:function(resp){
-                     document.write(resp);
+
+                    if(respuestas_id.indexOf(nam) == -1){
+                        p_respondidas++;
+                        respuestas_id.push(nam);
+                        var t = ((p_respondidas*100)/p_totales);
+                         $("#pro").animate({
+                              width: t+"%"
+                          }, 500);
+                         document.getElementById("pro").innerHTML  = parseInt(t)+"%";
+                    }
+                   
             }
         });
                 e.preventDefault();

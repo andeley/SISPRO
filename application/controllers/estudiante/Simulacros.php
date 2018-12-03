@@ -44,7 +44,7 @@ class Simulacros extends CI_Controller {
 		$id_opcion=$this->uri-> segment(6);
 
 		$this -> Simulacros_model->anadir_rta($id_opcion, $id_pregunta, $id, $id_simulacro);
-		$this->load->view('estudiante/header');
+		//$this->load->view('estudiante/header');
 
 	}
 
@@ -55,12 +55,14 @@ class Simulacros extends CI_Controller {
 		$areas_simulacro = $this -> Simulacros_model -> getAreasSimulacro($id_simulacro);
 		$preguntas_area = array();
 		$opciones= array();
+		$num_preguntas =0;
 
 		if($areas_simulacro){
 				foreach ($areas_simulacro as $area) {
 					//listar los enunciados del area
 					$preguntas_area[$area -> id] = $this -> Simulacros_model -> getPreguntasAreaS($area -> id, $id_simulacro); //guarda array con preguntas del area
 					if($preguntas_area[$area -> id]){
+						$num_preguntas+=count($preguntas_area[$area -> id]);
 						foreach ($preguntas_area[$area -> id]as $pregunta) {
 							//almacenar opciones de respuesta
 							$opciones[$pregunta -> id_pregunta] = $this-> Preguntas_model -> getOpcionesRespuesta($pregunta -> id_pregunta);
@@ -70,6 +72,7 @@ class Simulacros extends CI_Controller {
 				$data['opciones'] = $opciones;
 				$data['areas_simulacro'] = $areas_simulacro;
 				$data['preguntas_area'] = $preguntas_area;
+				$data['num_preguntas'] = $num_preguntas;
 		}else{
 				$data['areas_simulacro'] = false;
 				$data['preguntas_area'] = false;
