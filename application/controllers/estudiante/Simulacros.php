@@ -37,6 +37,17 @@ class Simulacros extends CI_Controller {
 		$this->load->view('estudiante/simulacros', $data);
 	}
 
+	public function anadir_rta(){ //guardar la respuesta instantaneamente al responderla-actualizar respuesta
+		$id=$this->session->userdata("id");
+		$id_simulacro=$this->uri-> segment(4);
+		$id_pregunta=$this->uri-> segment(5);
+		$id_opcion=$this->uri-> segment(6);
+
+		$this -> Simulacros_model->anadir_rta($id_opcion, $id_pregunta, $id, $id_simulacro);
+		$this->load->view('estudiante/header');
+
+	}
+
 	public function realizarSimulacro(){ //cargar vista simulacro en vivo
 		$id=$this->session->userdata("id");
 		$id_simulacro=$this->uri-> segment(4);

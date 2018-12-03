@@ -71,8 +71,9 @@
     </div>     
     
     <div id="cotenido_pag">          
-      <!-------------CUADRO------------------->
-      <form>
+      <!-------------Componente Areas Preguntas------------------->
+      <form class="form-group" method="post" id="formr" action="<?php echo base_url(); ?>estudiante/Simulacros/guardar_simulacro/<?=$simulacro_id;?>?>">
+
         <?php if($areas_simulacro): ?>
           
           <?php foreach ($areas_simulacro as $as):?>
@@ -90,10 +91,6 @@
                 <p><?php echo $as -> nombre; ?></p>
             </div>
             
-
-
-
-
               
               <?php $preguntas = $preguntas_area[$as -> id]; ?>
               <?php if($preguntas): ?>
@@ -118,17 +115,19 @@
                   <br>
                 <div class="pru_res">
       <?php $i = 97; //a ?>
+
       <div class="container">
       <?php foreach ($opciones [$p -> id_pregunta] as $opcion): ?>
-  
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    
     <label style="color: #6E6E6E;" class="form-check-label" for="exampleCheck1">
+
+      <input type="radio" name="check<?=$p-> id_pregunta;?>" class="form-check-input" id="exampleCheck1" value="<?=$simulacro_id."/".$p->id_pregunta."/".$opcion-> id;?>" />
+
+      <b><?php echo(chr($i++)).". "; ?></b>
       <?php echo $opcion -> descripcion; ?>
     </label><br>
   
   <?php endforeach; ?><!--for opc rta-->
-
-                    
                 </div>
                 </div>
               <?php endif; ?><!--fin if existencia opc-->
@@ -136,7 +135,7 @@
             </div>
             <?php endif; ?><!--fin if existencia pregunta-->
 
-             <?php endforeach; ?><!--for recorrer preguntas-->
+             <?php endforeach; ?><!--for recorrer preguntas de seleccion Múltiple-->
             
             </div>
             <?php endif; ?><!--if existencia de preguntas en el area-->
@@ -147,10 +146,8 @@
       </div>
       <?php  endforeach; ?>
         <?php endif; ?>
-        
 
-        
-         <button id="envio_info" type="submit" class="btn ">Enviar</button>
+         <button id="envio_info" type="submit" class="btn ">Finalizar</button>
     </form> 
 
     </div> 
@@ -176,7 +173,27 @@
     <!-- Custom scripts for this template -->
     <script src="<?php echo base_url(); ?>assets/template/js/grayscale.min.js"></script>
    
-   
+
+<!--Guardar Automáticamebte la respuesta-->
+<script type="text/javascript">
+
+ $(document).ready( function() {
+$('input[type=radio]').change(function(e) {
+  var ruta = "<?php echo base_url(); ?>estudiante/Simulacros/anadir_rta/"+$(this).val()  ;
+                $.ajax({
+                    url:  ruta,
+                    type:"POST",
+                    data: $(this).serialize(),
+                    success:function(resp){
+                     document.write(resp);
+            }
+        });
+                e.preventDefault();
+            });
+        });
+
+
+</script>
    
   </body>
 

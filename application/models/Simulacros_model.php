@@ -3,6 +3,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Simulacros_model extends CI_Model {
 
+public function anadir_rta($id_opcion, $id_pregunta, $id_estudiante, $id_simulacro){
+	//buscar si la opc escogida es la correcta
+	$this->db->select('correcta');
+	$this->db->from('opcion');
+	$this->db->where('id='.$id_opcion);
+	$rta = $this-> db->get()->row()->correcta;
+
+	$respuesta = array();
+	$respuesta['id_estudiante'] =$id_estudiante;
+	$respuesta['id_simulacro'] =$id_simulacro;
+	$respuesta['id_pregunta'] =$id_pregunta;
+	$respuesta['id_opcion'] =$id_opcion;
+	$respuesta['respuesta'] =$rta;
+
+
+	//verificar que no haya respondido antes
+
+	$this->db->select('*');
+	$this->db->from('estudiante_respuestas');
+	$this->db->where('id_estudiante='.$id_estudiante);
+	$this->db->where('id_simulacro='.$id_simulacro);
+	$this->db->where('id_pregunta='.$id_pregunta);
+	$val = $this-> db->get();
+
+	if($val->num_rows() > 0){
+		$this->db->where('id_estudiante='.$id_estudiante);
+		$this->db->where('id_simulacro='.$id_simulacro);
+		$this->db->where('id_pregunta='.$id_pregunta);
+		$this->db->update("estudiante_respuestas", $respuesta);
+		
+	}
+	else $this->db->insert('estudiante_respuestas', $respuesta);
+}
+
 public function getPreguntasAreaS($id_area, $id_simulacro){ //extraer preguntas del area simulacro
 	$this->db->select('e.id AS id_enunciado, e.contenido AS enunciado, p.id AS id_pregunta, p.id_area, p.descripcion, p.estado, p.id_docente_cargo, p.tipo');
 	$this->db->from('pregunta p');
