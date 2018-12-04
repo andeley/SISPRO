@@ -4,6 +4,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Preguntas_model extends CI_Model
 {
 
+public function getPreguntasAreaPublicas($id_area){
+    $this->db->select('p.id, p.id_area, a.nombre AS area, p.estado, p.visibilidad, p.id_enunciado');
+        $this->db->from('pregunta p');
+        $this->db->join('area a', 'a.id=p.id_area');
+        $this->db->where('p.id_area', $id_area);
+        $this->db->where('p.visibilidad', 'publico');
+        $consulta = $this->db->get();
+        if ($consulta->num_rows() > 0) {
+            return $consulta->result();
+        }return false;
+}
+
 public function getAreaP($id_pregunta){
     $this->db->select('a.nombre, a.id');
         $this->db->from('area a');
