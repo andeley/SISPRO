@@ -3,36 +3,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 body {
     overflow-x: hidden;
-    background-image: url(../../../img/bg_estudiantes.jpg);
+    background-image: url(../img/bg_simulacro.jpg);
     background-position:center;
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-size:cover
 }
 
-/********************MODAL VER DATOS ESTUDIANTE***********************/
-
-.ver_datos_est{
-    font-family: 'Raleway', sans-serif;
-    width: 100%;
-    border-bottom: 4px solid #EA3D4F;
-    margin-bottom: 20px;
-    padding: 50px;
-}
-
-.ver_datos_est #ver_datos_est_titu_modal{
-    margin: 0 auto;
-    padding-bottom: 10px;
-    width: 100%;
-    text-align: center;
-    color: #747474;
-        font-family: 'Raleway', sans-serif;
-    border-bottom: 2px solid #EA3D4F;
-}
-
-.ver_datos_est #ver_datos_est_content{
-    
-    width: 100%;
-        font-family: 'Raleway', sans-serif;
-    margin-top: 30px;
-}
