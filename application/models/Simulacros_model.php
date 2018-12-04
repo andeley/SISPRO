@@ -3,6 +3,87 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Simulacros_model extends CI_Model {
 
+public function getCalificaciones_se($id_simulacro, $id_estudiante){
+	$this->db->select('ce.id_simulacro, ce.id_estudiante, ce.id_area, ce.puntaje, ce.p_correctas, ce.p_totales, s.fecha_inicio, s.fecha_fin, s.nombre, s.descripcion, a.nombre as nombre_area');
+	$this->db->from('calificacion_estudiante ce');
+	$this->db->join('simulacro s' , 's.id= ce.id_simulacro');
+	$this->db->join('area a' , 'a.id= ce.id_area');
+	$this->db->where('id_simulacro='.$id_simulacro);
+	$this->db->where('id_estudiante='.$id_estudiante);
+
+	$resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;
+}
+
+public function guardar_calificacion_est($c){
+	return $this->db->insert('calificacion_estudiante', $c);	
+}
+
+public function getRespuestasEstudianteArea($id_area, $id_simulacro, $id_est){
+	$this->db->select('er.id_estudiante, er.id_simulacro, er.id_pregunta, er.id_opcion, er.respuesta');
+	$this->db->from('estudiante_respuestas er');
+	$this->db->join('pregunta p' , 'p.id= er.id_pregunta');
+	
+	$this->db->where('p.id_area='.$id_area);
+	$this->db->where('er.id_estudiante='.$id_est);
+	$this->db->where('er.id_simulacro='.$id_simulacro);
+
+	 $resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;
+
+}
+
+public function  preguntas_respondidas($id_simulacro, $id){
+	$this->db->select('*');
+	$this->db->from('estudiante_respuestas');
+	$this->db->where('id_estudiante='.$id);
+	$this->db->where('id_simulacro='.$id_simulacro);
+	
+	 $resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;	
+
+}
+
+public function anadir_rta($id_opcion, $id_pregunta, $id_estudiante, $id_simulacro){
+	//buscar si la opc escogida es la correcta
+	$this->db->select('correcta');
+	$this->db->from('opcion');
+	$this->db->where('id='.$id_opcion);
+	$rta = $this-> db->get()->row()->correcta;
+
+	$respuesta = array();
+	$respuesta['id_estudiante'] =$id_estudiante;
+	$respuesta['id_simulacro'] =$id_simulacro;
+	$respuesta['id_pregunta'] =$id_pregunta;
+	$respuesta['id_opcion'] =$id_opcion;
+	$respuesta['respuesta'] =$rta;
+
+
+	//verificar que no haya respondido antes
+
+	$this->db->select('*');
+	$this->db->from('estudiante_respuestas');
+	$this->db->where('id_estudiante='.$id_estudiante);
+	$this->db->where('id_simulacro='.$id_simulacro);
+	$this->db->where('id_pregunta='.$id_pregunta);
+	$val = $this-> db->get();
+
+	if($val->num_rows() > 0){
+		$this->db->where('id_estudiante='.$id_estudiante);
+		$this->db->where('id_simulacro='.$id_simulacro);
+		$this->db->where('id_pregunta='.$id_pregunta);
+		$this->db->update("estudiante_respuestas", $respuesta);
+		
+	}
+	else $this->db->insert('estudiante_respuestas', $respuesta);
+}
+
 public function getPreguntasAreaS($id_area, $id_simulacro){ //extraer preguntas del area simulacro
 	$this->db->select('e.id AS id_enunciado, e.contenido AS enunciado, p.id AS id_pregunta, p.id_area, p.descripcion, p.estado, p.id_docente_cargo, p.tipo');
 	$this->db->from('pregunta p');
@@ -91,6 +172,21 @@ public function getEstudiantes($id){//estudiantes que se registraron en el simul
 	$this->db->join('usuario u', 'e.id_user=u.id');
 	$this->db->where('id_simulacro', $id );
 	 $consulta=$this->db->get();
+			 if($consulta->num_rows() > 0){
+				return $consulta->result();
+			} return false;
+}
+
+public function getSimulacrosEstudianteTodos($id_est){
+			 $this->db->select('s.id, d.nombre AS nombreDir, s.fecha_inicio, s.fecha_fin, p.nombre AS nombreProg, s.fecha_inicio, s.fecha_fin, s.nombre AS nombreS');
+		 $this->db->from('simulacro s');
+		 $this->db->join('usuario d', 'd.id=s.id_director');
+		 $this->db->join('programa_academico p', 'p.id=d.id_programa');
+
+		 $this->db->join('inscripcion i', 'i.id_simulacro=s.id');
+		 $this->db->where('i.id_estudiante', $id_est );
+		// $this->db->where('s.fecha_fin < CURRENT_TIMESTAMP()-5'); //finalizados
+		 $consulta=$this->db->get();
 			 if($consulta->num_rows() > 0){
 				return $consulta->result();
 			} return false;
