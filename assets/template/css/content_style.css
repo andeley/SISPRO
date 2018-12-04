@@ -5,7 +5,6 @@
     background-color: #F1F1F1;
     width: 80%;
     height: 1000px;
-    padding-bottom: 100px;
 }
 
 #indice_pag{
@@ -21,16 +20,13 @@
 #cotenido_pag{
     margin: 0 auto;
     width: 78%;
-    height: auto;
- 
+    height: 30px;
 }
 
 footer{
     background: black;
     padding: 8px;
 }
-
-
 
 
 

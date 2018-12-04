@@ -1,0 +1,81 @@
+@import 'content_style.css';
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+body {
+    overflow-x: hidden;
+    background-image: url(../img/bg_simulacro.jpg);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:cover
+}
+
+/******************CUADRO **********************************/
+
+
+.cuadro_prin{
+    font-family: 'Raleway', sans-serif;
+    border-radius: 5px;
+    margin: 10px auto;
+    background: white;
+    width: 100%;
+    border-bottom: 4px solid #EA3D4F;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 0 5px #616060;
+}
+
+.cuadro_prin #cuadro_content{
+   display:flex;
+   
+}
+
+.cuadro_prin #cuadro_content #cuadro_uno{
+    padding: 50px;
+    margin-right: 30px;
+    color: #747474;
+    font-size: 20px;
+    
+}
+
+.cuadro_prin #cuadro_content #cuadro_dos{
+    
+    width: 350px;
+    padding-left: 50px;
+    padding-top: 15px;
+    border-left: 2px solid #EA3D4F;
+   
+}
+
+.cuadro_prin #cuadro_content #cuadro_dos form label{
+     color: #747474;
+    margin-bottom: -5px;
+    margin-top: 10px;
+}
+
+
+.cuadro_prin #cuadro_content #cuadro_dos button{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120));
+    float: right;
+    margin-top: 2px;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/*************LISTA******************/
+.table_{
+    margin: 0 auto;
+    background: white;
+    width: 100%;
+    box-shadow: 0 0 5px #616060;
+    font-family: 'Raleway', sans-serif;
+     border-radius: 5px;
+}
+
+#tit_table{
+background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120)); 
+    color: white;    
+}

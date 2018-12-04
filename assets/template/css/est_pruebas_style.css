@@ -1,0 +1,42 @@
+@import 'content_style.css';
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+body {
+    overflow-x: hidden;
+    background-image: url(../img/bg_pruebas.jpg);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:cover
+}
+
+
+/***************PRUEBAS DISPONIBLES******************/
+
+
+.info-section .card{
+    border:0;
+    border-bottom:.25rem solid #EA3D4F;
+    box-shadow: 0 0 15px #ddd;
+    border-radius: 5pz;
+   
+}
+
+.info-section .card h4{
+    font-size:.8rem;
+    font-family:'Varela Round';
+    text-transform:uppercase;
+    letter-spacing:.15rem
+}
+
+.info-section .card hr{
+    border-color:#EA3D4F;
+    border-width:.25rem;
+    width:3rem
+}
+
+.btn_info_ins{
+    margin-top: 10px;
+     background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120));
+    color: white;
+}

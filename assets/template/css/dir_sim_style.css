@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+body {
+  overflow-x: hidden;
+  background-image: url(../img/bg_simulacro.jpg);
+       background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:cover
+}
+#page_content{
+    border-radius: 5px;
+    margin: 35px auto;
+    background-color: #F1F1F1;
+    width: 80%;
+    height: 1000px;
+}
+
+/*****************INDICE PAGINA*****************************/
+#titulo_area_pag{
+    margin: 0 auto;
+    width: 78%;
+    margin-top: 20px;
+    margin-bottom:20px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #979797;
+    font-size: 20px;
+}
+
+/**************VENTANA MODAL***********************/
+
+.reg_sim{
+    width: 100%;
+    border-bottom: 4px solid #EA3D4F;
+    margin-bottom: 20px;
+    padding: 50px;
+}
+
+.reg_sim #reg_sim_titu_modal{
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: #747474;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 2px solid #EA3D4F;
+}
+
+.reg_sim #reg_sim_content{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+}
+
+.reg_sim #reg_sim_content label{
+      margin-bottom: -10px;
+      color: #747474;
+}
+.reg_sim #reg_sim_content button{
+    margin-top: 29px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120));
+    float: right;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.opc_cir{
+    color: white;
+   background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120));
+    border-radius: 60px;
+    width: auto;
+    padding-top: 8px;
+    padding-bottom:5px;
+     padding-left: 15px;
+     padding-right: 15px;
+}
+
+/***************TABLA*****************************/
+.table_area{
+    margin: 0 auto;
+    background: white;
+    width: 78%;
+    box-shadow: 0 0 5px #616060;
+    font-family: 'Raleway', sans-serif;
+     border-radius: 5px;
+}
+
+#tit_table{
+background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120)); 
+    color: white;    
+}
+/******************CUADRO REGISTRO**********************************/
+
+
+.simulacro_prin{
+    font-family: 'Raleway', sans-serif;
+     border-radius: 5px;
+    margin: 10px auto;
+    background: white;
+    width: 78%;
+    border-bottom: 4px solid #EA3D4F;
+    margin-bottom: 20px;
+    padding: 20px;
+     box-shadow: 0 0 5px #616060;
+}
+
+.simulacro_prin #simulacro_content{
+   display:flex;
+   
+}
+.simulacro_prin #simulacro_content #simulacro_uno{
+    padding: 30px;
+    margin-right: 50px;
+    color: #747474;
+}
+
+.simulacro_prin #simulacro_content #simulacro_dos{
+    
+    width: 350px;
+    padding-left: 50px;
+    padding-top: 15px;
+    border-left: 2px solid #EA3D4F;
+   
+}
+
+.simulacro_prin #simulacro_content #simulacro_dos button{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120));
+    float: left;
+    margin-top: 18px;
+  font-family: 'Raleway', sans-serif;
+}
+
+
