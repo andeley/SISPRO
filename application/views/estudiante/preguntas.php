@@ -27,8 +27,9 @@ $num_filas = ceil(count($todas_las_areas) / 3);
 
            <div class="col-md-4 mb-3 mb-md-0">
             <div class="card py-4 h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+              <div class="card-body text-center text_style_pre">
+
+                <i class="fas fa-spa text-primary mb-2" style="color: #FC0758!important"></i>
                 <h4 class="m-0"><a href="<?php echo base_url(); ?>estudiante/Preguntas/ver_preguntas_area/<?=$todas_las_areas[$cont]->id?>"><?php echo $todas_las_areas[$cont]->nombre ?></a></h4>
               </div>
             </div>
@@ -87,7 +88,10 @@ $num_filas = ceil(count($todas_las_areas) / 3);
     <div id="indice_pag">
             <p>Gestionar > <a href="<?=base_url();?>estudiante/Preguntas">Preguntas</a> > <a href="<?php echo base_url(); ?>estudiante/Preguntas/ver_preguntas_area/<?=$area_p->id?>"><?=$area_p->nombre?></a></p>
             </div>
+         
+
          <div id="cotenido_pag">
+          <div class="cuadro_prin_est_simu">
             <center><h3>Informacion acerca de la pregunta <?=$info_pregunta->id?></h3></center>
 <?php
 if ($enunciado != "no existe enunciado") {
@@ -106,6 +110,7 @@ $i = 97;
 
     }?>
 
+</div>
   </div>
 
 <?php } ?>

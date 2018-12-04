@@ -1,4 +1,4 @@
-
+  
 <div id="page_content">
 
 <div class="container-fluid">
@@ -11,16 +11,17 @@
     ?>
 
 
-           <div class="cuadro_prin">
+           <div class="cuadro_prin_est_simu">
 
-           <div id="cuadro_content">
-            <div id="cuadro_uno">
+           <div id="cuadro_content_est_simu">
+           
+            <div id="cuadro_uno_est_simu">
                 <p>Opciones Simulacros</p>
             </div>
 
-            <div id="cuadro_dos">
+            <div id="cuadro_dos_est_simu">
                  <form>
-                    <a href="<?=base_url();?>estudiante/Simulacros/verResultados"><button type="button" class="btn btn-info">Ver mi Desempeño</button></a>
+                    <a href="<?=base_url();?>estudiante/Simulacros/verResultados"><button type="button" class="btn ">Ver mi Desempeño</button></a>
                  </form>
             </div>
             </div>
@@ -150,18 +151,25 @@ $i = 0;
     <div id="myModal<?=$s->id;?>" class="modal fade " role="dialog">
           <div class="modal-dialog modal-lg ">
 
+       
+
+
+
         <!-- Modal content-->
     <div class="modal-content modal_per ">
-     <div class="reg_sim">
+     <div class="ver_datos_est">
        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <div class="modal-header">
 
-        <div id="reg_sim_titu_modal">
-                <h3>Detalle del Simulacro</h3>
+        <div id="ver_datos_est_titu_modal">
+                <h3>Detalle Simulacro</h3>
         </div>
       </div>
+
+
        <div class="modal-body">
-       <div id="reg_sim_content">
+        <div id="ver_datos_est_content">
+         
             <p><b>nombre: </b><?=$s-> nombreS;?> </p>
             <p><b>Descripción: </b><?=$s-> descripcion;?> </p>
             <p><b>Director A cargo: </b><?=$s-> nombreDir;?></p>
@@ -187,6 +195,13 @@ $i = 0;
   </div>
 </div>
         <!--Fin de la ventana Modal-->
+
+
+
+
+
+
+
     <?php }?>
   </tbody>
 </table>

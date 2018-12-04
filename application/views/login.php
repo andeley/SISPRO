@@ -100,7 +100,7 @@
            <div class="col-md-4 mb-3 mb-md-0">
             <div class="card py-4 h-100">
               <div class="card-body text-center">
-                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                <i class="fas fa-spa text-primary mb-2" style="color: #FC0758!important"></i>
                 <h4 class="text-uppercase m-0">25/11/2018</h4>
                 <hr class="my-4">
                 <div class="small text-black-50 ">Hora comienzo: 8:00am
@@ -112,7 +112,7 @@
            <div class="col-md-4 mb-3 mb-md-0">
             <div class="card py-4 h-100">
               <div class="card-body text-center">
-                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                <i class="fas fa-spa text-primary mb-2" style="color: #FC0758!important"></i>
                 <h4 class="text-uppercase m-0">25/11/2018</h4>
                 <hr class="my-4">
                 <div class="small text-black-50 ">Hora comienzo: 2:00pm
@@ -124,7 +124,7 @@
           <div id="noti_info" class="col-md-4 mb-3 mb-md-0">
             <div class="card py-4 h-100">
               <div class="card-body text-center">
-                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+               <i class="fas fa-spa text-primary mb-2" style="color: #FC0758!important"></i>
                 <h4 class="text-uppercase m-0">26/11/2018</h4>
                 <hr class="my-4">
                 <div class="small text-black-50 ">Hora comienzo: 8:00am
