@@ -183,7 +183,7 @@ break;
   <thead>
     <tr id="tit_table">
       <th scope="col"><center>Id</center></th>
-      <th scope="col" style="width: 150px;"><center>Area</center></th>
+      <th scope="col"><center>Area</center></th>
       <th scope="col"><center>Estado</center></th>
       <th scope="col"><center>Visibilidad</center></th>
       <th scope="col"><center>Opciones</center></th>

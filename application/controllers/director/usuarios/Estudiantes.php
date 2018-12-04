@@ -25,7 +25,6 @@ class Estudiantes extends CI_Controller {
 
 		$this->load->view('director/estudiantes', $data);
 
-		
 
 	}
 

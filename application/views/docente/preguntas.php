@@ -109,7 +109,7 @@ $num_filas = ceil(count($todas_las_areas) / 3);
 <?php
 if ($enunciado != "no existe enunciado") {
         ?>
-<p class="pru_preg"><?=$enunciado;?></p>
+<p><?=$enunciado;?></p>
 <?php
 }
     ?>
@@ -118,7 +118,7 @@ if ($enunciado != "no existe enunciado") {
 $i = 97;
     foreach ($opciones_respuesta as $o) {
         ?>
-        <p><b><?=chr($i++) . ". ";?></b><?=$o->descripcion;?></p>
+        <p><?=chr($i++) . ". " . $o->descripcion;?></p>
         <?php
 
     }?>
