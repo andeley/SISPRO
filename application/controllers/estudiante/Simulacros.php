@@ -13,7 +13,7 @@ class Simulacros extends CI_Controller {
 		if(!$this->session->userdata("login")) { 
 			redirect(base_url());
 		}  
-		 
+		 date_default_timezone_set('America/Bogota');
 	}
 
 	public function index()
@@ -48,6 +48,31 @@ class Simulacros extends CI_Controller {
 			}
 			$data['areas_simulacros'] = $areas;
 		}	
+		$data['calificaciones'] = $calificacion;
+		$this->load->view('estudiante/simulacros', $data);
+	}
+
+	public function verResultados(){
+
+		$this->load->view('estudiante/header');
+		$data['tipo']= "ver desempeño";
+		$id=$this->session->userdata("id");
+	$data['simulacros_estudiante']= $this-> Simulacros_model->getSimulacrosEstudianteTodos($id);	
+		$calificacion = array(); //verificar que el estudiante ya haya realizado ese simulacro
+
+		if($data['simulacros_estudiante']){
+			
+			foreach ($data['simulacros_estudiante'] as $s) {
+			
+			if(strtotime($s->fecha_fin) >= strtotime(date("d-m-Y H:i:00", time()))) continue;
+				$val = $this->Simulacros_model->getCalificaciones_se($s-> id, $id);
+				if($val){
+					foreach ($val as $v) {
+						array_push($calificacion, $v); //mostrar calificaciones para simulacros finalizados
+					}
+				}		
+			}
+		}
 		$data['calificaciones'] = $calificacion;
 		$this->load->view('estudiante/simulacros', $data);
 	}
