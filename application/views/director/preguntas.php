@@ -9,14 +9,14 @@
          <div id="cotenido_pag">
         <!-------------- CUADRO LISTADO PREGUNTAS------->
 
-            <div class="cuadro_prin">
+            <div class="cuadro_prin_dir_preg">
 
-           <div id="cuadro_content">
-            <div id="cuadro_uno">
+           <div id="cuadro_content_dir_preg">
+            <div id="cuadro_uno_dir_preg">
                 <p>Opciones Preguntas</p>
             </div>
 
-            <div id="cuadro_dos">
+            <div id="cuadro_dos_dir_preg">
                  <form>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Registrar</button>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2">Aprobar Preguntas</button>
@@ -106,6 +106,11 @@ $num_filas = ceil(count($todas_las_areas) / 3);
             <p>Gestionar > <a href="<?=base_url();?>director/Preguntas">Preguntas</a> > <a href="<?php echo base_url(); ?>director/Preguntas/ver_preguntas_area/<?=$area_p->id?>"><?=$area_p->nombre?></a></p>
             </div>
          <div id="cotenido_pag">
+
+<div class="cuadro_prin_dir_areas_uno">
+
+
+
             <center><h3>Informacion acerca de la pregunta <?=$info_pregunta->id?></h3></center>
 <?php
 if ($enunciado != "no existe enunciado") {
@@ -146,7 +151,7 @@ if ($info_pregunta->tipo == "sm") {
         } else {
             echo "Incorrecta";
         }?></center></td>
-        <td><center><?php echo $o->justificacion; ?></center></td>
+        <td id="text_pre_justi"><?php echo $o->justificacion; ?></td>
         </tr>
     <?php endforeach;?>
   </tbody>
@@ -166,6 +171,13 @@ break;
         }
     }
     ?>
+
+
+
+
+
+</div>
+
         </div>
 
 <?php } else if ($tipo == "ver preguntas docente") {?>

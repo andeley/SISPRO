@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+
 #page_content{
     border-radius: 5px;
     margin: 8% auto;
     background-color: #F1F1F1;
-    width: 80%;
-    height: 1000px;
+   width: 80%;
+  height: auto;
     padding-bottom: 100px;
 }
 
@@ -30,8 +31,19 @@ footer{
     padding: 8px;
 }
 
+/*********************TABLAS***********/
+.table_{
+    margin: 0 auto;
+    background: white;
+    width: 100%;
+    box-shadow: 0 0 5px #616060;
+    font-family: 'Raleway', sans-serif;
+     border-radius: 5px;
+}
 
-
-
+#tit_table{
+background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120)); 
+    color: white;    
+}
 
 

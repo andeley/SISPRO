@@ -1,0 +1,73 @@
+@import 'content_style.css';
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+body {
+    overflow-x: hidden;
+    background-image: url(../../../img/bg_areas.jpg);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:cover
+}
+
+
+/******************CUADRO **********************************/
+
+
+.cuadro_prin_dir_per{
+    font-family: 'Raleway', sans-serif;
+    border-radius: 5px;
+    margin: 10px auto;
+    background: white;
+    width: 100%;
+    border-bottom: 4px solid #EA3D4F;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px #616060;
+}
+
+
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_uno_dir_per{
+    color: #747474;
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 100%;
+    font-size: 20px;
+     background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120));
+    padding-bottom: 1px;
+}
+
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_uno_dir_per p{
+        padding-left: 20px;
+        color: white;
+     border-left: 2px solid white;
+    padding-bottom: 6px;
+}
+#division{
+    display: inline-block;
+    width: 100%;
+}
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_dos_dir_per{
+    font-family: 'Raleway', sans-serif;
+    width: 50%;
+    padding-left: 50px;
+    padding-top: 15px;
+    float: left;
+    border-right: 2px solid #DADADA;
+}
+
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_dos_dir_per .info_basic_dir_per{
+    font-weight: 600;
+    padding-right: 20px;
+}
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_dos_dir_per ul{
+  list-style:none;
+}
+
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_tres_dir_per{
+    font-family: 'Raleway', sans-serif;
+    width: 50%;
+    padding-left: 50px;
+    padding-top: 15px;
+    float: right;
+    
+}

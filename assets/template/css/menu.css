@@ -7,7 +7,6 @@
      font-family: 'Raleway', sans-serif;
     font-size: 14px;
 }
-
 /**Cuando esta contreaido el menu**/
 #mainNav .navbar-toggler{
     font-size:80%;
@@ -24,7 +23,7 @@
 }
 
 #mainNav .navbar-brand img{
-    width: 16%;
+    width: 36%;
 }
 
 #mainNav .navbar-nav .nav-item:hover{
