@@ -272,29 +272,39 @@ $i = 0;
 </div>
 
 <script>
-  var vector =<?php echo(json_encode(array_column($calificaciones2, 'id_area'))); ?>;
+  var vector = <?php echo(json_encode(array_column($calificaciones2, 'id_area'))); ?>;
+  
   var calificaciones = <?php echo(json_encode(array_column($calificaciones2, 'puntaje'))); ?>;
-  var colores1 = ['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)'];
-  var colores2 = ['rgba(255,99,132,1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)','rgba(255, 159, 64, 1)'];
 
 var ctx = document.getElementById("myChart").getContext('2d');
 ctx.canvas.width = 50;
 ctx.canvas.height = 50;
-var l_c = calificaciones.length;
+/*
+'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+
+,
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+                */
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: vector,
         datasets: [{
-            label: 'Calificación',
+            labels: 'Calificación',
             data: calificaciones,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)'
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
             ],
             borderColor: [
-                'rgba(255,99,132,2)',
-                'rgba(54, 162, 235, 2)'
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)'
             ],
             borderWidth: 1
         }]
