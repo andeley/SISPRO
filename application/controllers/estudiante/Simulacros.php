@@ -10,7 +10,7 @@ class Simulacros extends CI_Controller {
 		$this->load->model("Preguntas_model");
 		$this->load->model("Areas_model");
 
-		if(!$this->session->userdata("login")) {  //si no se ha iniciado sesion "login" -> es la variable creada en Auth var $data
+		if(!$this->session->userdata("login")) { 
 			redirect(base_url());
 		}  
 		 

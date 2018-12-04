@@ -9,6 +9,24 @@
     <div id="cotenido_pag">
       <?php if ($tipo == "General") {
     ?>
+
+    
+           <div class="cuadro_prin">
+
+           <div id="cuadro_content">
+            <div id="cuadro_uno">
+                <p>Opciones Simulacros</p>
+            </div>
+
+            <div id="cuadro_dos">
+                 <form>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Ver desempeño</button>
+                 </form>
+            </div>
+            </div>
+
+
+        </div>
       <!--verificar pruebas en vivo-->
       <?php if ($simulacros_estudiante != false) {
 
