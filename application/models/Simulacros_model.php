@@ -3,6 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Simulacros_model extends CI_Model {
 
+public function getCalificaciones($id_estudiante){//todas las calificaciones del estudiante
+	$this->db->select('ce.id_simulacro, ce.id_estudiante, ce.id_area, ce.puntaje, ce.p_correctas, ce.p_totales, s.fecha_inicio, s.fecha_fin, s.nombre, s.descripcion, a.nombre as nombre_area');
+	$this->db->from('calificacion_estudiante ce');
+	$this->db->join('simulacro s' , 's.id= ce.id_simulacro');
+	$this->db->join('area a' , 'a.id= ce.id_area');
+	$this->db->where('id_estudiante='.$id_estudiante);
+
+	$resultados = $this-> db->get();
+		 if($resultados->num_rows() > 0){
+			return $resultados->result();
+		}return false;
+}
+
 public function getCalificaciones_se($id_simulacro, $id_estudiante){
 	$this->db->select('ce.id_simulacro, ce.id_estudiante, ce.id_area, ce.puntaje, ce.p_correctas, ce.p_totales, s.fecha_inicio, s.fecha_fin, s.nombre, s.descripcion, a.nombre as nombre_area');
 	$this->db->from('calificacion_estudiante ce');

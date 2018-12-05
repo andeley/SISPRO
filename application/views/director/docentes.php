@@ -38,7 +38,6 @@ if ($docentes_a) {?>
                           </tbody>
                         </table>
                         </div>
-
                 <?php }?>
               <div id="indice_pag">
                 <center><p>Tabla de docentes</p></center>
@@ -54,6 +53,7 @@ if ($docentes_a) {?>
                             </tr>
                           </thead>
                           <tbody>
+                            <?php $i =0; ?>
                             <?php foreach ($docentes_a2 as $docente): ?>
 
                               <tr>
@@ -61,10 +61,56 @@ if ($docentes_a) {?>
                               <td><?php echo $docente->codigo; ?></td>
                               <td><?php echo $docente->nombre; ?></td>
                               <td><center>
-                                   <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Ver Detalle</button>
+                                   <button type="button" data-target="#myModal<?=$docente->id;?>" data-toggle="modal" class="btn btn-danger btn-sm"><span class="fa fa-search"></span>
+          </button>
                               </center></td>
                             </tr>
+ 
+<!--Modal detalle del docente-->
+<div id="myModal<?=$docente->id;?>" class="modal fade " role="dialog">
+        <div class="modal-dialog modal-lg ">
 
+      <!-- Modal content-->
+  <div class="modal-content modal_per ">
+   
+   <div class="reg_sim">
+     <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <div class="modal-header">
+
+      <div id="reg_sim_titu_modal">
+              <h3>Detalle del Docente</h3>
+      </div>
+    </div>
+     <div class="modal-body">
+     <div id="reg_sim_content">
+          <p><b>nombre: </b><?=$docente->nombre;?> </p>
+         <?php if ($areas_docentes[$i]) {?>
+            <p><b>Areas de conocimiento: </b>
+             <?php 
+                $es = false;
+                foreach ($areas_docentes[$i] as $a) {
+                      if($es)echo ", ";
+                      $es=true;
+                      echo $a-> nombre;
+                }
+
+             ?>
+          </p>
+        <?php }else echo "Sin Areas de Conocimiento Registradas." ?>
+          
+
+
+    </div>
+    </div>
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+            </div>
+</div>
+</div>
+<?php $i++; ?>
                             <?php endforeach;?>
                           </tbody>
                         </table>

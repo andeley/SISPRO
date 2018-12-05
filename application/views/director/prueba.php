@@ -84,7 +84,8 @@
         <p>Programa de <?php echo $programa; ?></p>
     </div> 
     <div id="indice_pag">          
-        <p><b>Muestra de la prueba: </b><?php echo $simulacro -> nombre; ?> </p>
+        <p><b>Muestra de la prueba: </b><?php echo $simulacro -> nombre; ?> (<a href="">Descargar</a>) </p>
+
     </div>     
     
     <div id="cotenido_pag">          

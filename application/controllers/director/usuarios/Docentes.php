@@ -25,6 +25,14 @@ class Docentes extends CI_Controller {
 		$data['docentes_a'] = $this-> Usuarios_model->docentes_en_espera($programa, "espera");
 		//cargar los docentes vinculados a un programa académico (docentes de planta)
 		$data['docentes_a2'] = $this-> Usuarios_model->docentes_en_espera($programa, "aprobado");
+
+		$areas_docentes = array();
+		if($data['docentes_a2']){
+			foreach ($data['docentes_a2'] as $doc) {
+				array_push($areas_docentes, $this-> Usuarios_model-> getAreasDocente($doc-> id));
+			}
+		}
+		$data['areas_docentes'] = $areas_docentes;
 		$this->load->view('director/docentes', $data);
 
 

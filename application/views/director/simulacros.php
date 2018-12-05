@@ -318,7 +318,7 @@ endforeach;?>
                       <?php }?>
 
                       <br>
-                      <center><a href="#">Genarar pdf examen</a></center>
+                      
 </div>
 <div class="tab-pane fade" id="estudiantes" role="tabpanel" aria-labelledby="estudiantes-tab">
 

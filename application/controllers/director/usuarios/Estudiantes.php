@@ -23,10 +23,16 @@ class Estudiantes extends CI_Controller {
 		$programa =  $data['programa'];
 		$data['estudiantes'] = $this-> Usuarios_model->getEstudiantes($programa);
 
+		$calificaciones = array();
+		if($data['estudiantes']){
+			foreach ($data['estudiantes'] as $est) {
+				array_push($calificaciones,  $this-> Simulacros_model -> getCalificaciones($est-> id));
+			}
+		}
+
+		$data['calificaciones'] = $calificaciones;
 		$this->load->view('director/estudiantes', $data);
-
 		
-
 	}
 
 

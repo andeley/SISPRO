@@ -273,10 +273,12 @@ $i = 0;
     </div>
      <div class="modal-body">
      <div id="reg_sim_content">
-          
+<?php $i = 0; ?>
+
 
 
 <div class="container">
+  
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
@@ -287,59 +289,54 @@ $i = 0;
 </div>
 
 <script>
-  var vector = <?php echo(json_encode(array_column($calificaciones2, 'id_area'))); ?>;
-  
+  var vector = <?php echo(json_encode(array_column($calificaciones2, 'nombre_area'))); ?>;
   var calificaciones = <?php echo(json_encode(array_column($calificaciones2, 'puntaje'))); ?>;
+  var color1=['rgba(255,0,0,1)','rgba(255,153,0,1)','rgba(255,255,0,1)',
+              'rgba(0,255,0,1)','rgba(0,0,255,1)'];
+  var color2=['rgba(255,0,0,0.75)','rgba(255,153,0,0.75)','rgba(255,255,0,0.75)',
+              'rgba(0,255,0,0.75)','rgba(0,0,255,0.75)'];
+
+var n_areas = calificaciones.length;
+
+
+var total = new Array();
+for(i = 0; i < n_areas; i++){
+  
+total.push({
+    "label": vector[i],
+    "backgroundColor": color1[i%6],
+    "hoverBackgroundColor": color2[i%6],
+    "data": [calificaciones[i]]
+});
+
+}
 
 var ctx = document.getElementById("myChart").getContext('2d');
 ctx.canvas.width = 50;
 ctx.canvas.height = 50;
-/*
-'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
 
-,
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-                */
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: vector,
-        datasets: [{
-            labels: 'Calificación',
-            data: calificaciones,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
 
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
+//var ctxForecastChart = $("#forecastLineChart").get(0).getContext("2d");
+var forecastChartData = {
+    labels: [
+        "Calificación"
+    ],
+    datasets: total
+};
+
+var forecastOptions = {
+    tooltips: {
+        enabled: true
     }
+};
+
+var forecastBarChart = new Chart(ctx,
+{
+    type: 'bar',
+    data: forecastChartData,
+    options: forecastOptions
 });
 </script>
-
-
-
-
 
     </div>
     </div>
@@ -350,6 +347,7 @@ var myChart = new Chart(ctx, {
             </div>
 </div>
 </div>
+<!--Fin Modal detalle de los resultados-->
     <?php } ?>
   </tbody>
 </table>

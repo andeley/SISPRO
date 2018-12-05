@@ -28,7 +28,8 @@
                               <th scope="row"><?php echo $estudiante-> id;?></th>
                               <td><?php echo $estudiante-> codigo;?></td>
                               <td><?php echo $estudiante-> nombre;?></td>
-                              <td><center><button type="button" data-target="#myModal<?=$estudiante->id;?>" data-toggle="modal" class="btn btn-danger btn-sm">Ver detalle</button></center></td>
+                              <td><center> <button type="button" data-target="#myModal<?=$estudiante->id;?>" data-toggle="modal" class="btn btn-danger btn-sm"><span class="fa fa-search"></span>
+          </button></center></td>
                             </tr>
 
                             <!--Modal Detalle del Estudiante-->
