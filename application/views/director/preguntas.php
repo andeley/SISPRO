@@ -45,8 +45,8 @@ $num_filas = ceil(count($todas_las_areas) / 3);
 
            <div class="col-md-4 mb-3 mb-md-0">
             <div class="card py-4 h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+              <div class="card-body text-center text_style_pre">
+                 <i class="fas fa-spa text-primary mb-2" style="color: #FC0758!important"></i>
                 <h4 class="m-0"><a href="<?php echo base_url(); ?>director/Preguntas/ver_preguntas_area/<?=$todas_las_areas[$cont]->id?>"><?php echo $todas_las_areas[$cont]->nombre ?></a></h4>
               </div>
             </div>
