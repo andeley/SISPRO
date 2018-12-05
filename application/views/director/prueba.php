@@ -14,7 +14,10 @@
     <!-- Bootstrap core-->
     <link href="<?php echo base_url(); ?>assets/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/est_pru_style.css">
+     <!----------INICIO LINK LOCAL-------------->
+
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/pages/docente/doc_prueba_style.css">
+     <!--------------FIN LINK LOCAL ------------->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/menu.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -77,17 +80,21 @@
 
 <div id="page_content">
 
-    
+    <div id="indice_pag">
+                  <p>Programa de <?php echo $programa; ?></p>
+    </div>
+  
       
-<div class="container-fluid">
-   <div id="titulo_programa">          
-        <p>Programa de <?php echo $programa; ?></p>
-    </div> 
-    <div id="indice_pag">          
-        <p><b>Muestra de la prueba: </b><?php echo $simulacro -> nombre; ?> </p>
-    </div>     
-    
-    <div id="cotenido_pag">          
+
+<div id="cotenido_pag">
+<div class="cuadro_prin_doc_pre_list">
+                  
+           <div id="cuadro_content_doc_pre_list">
+            <div id="cuadro_uno_doc_pre_list">
+                 <p><b>Muestra de la prueba: </b><?php echo $simulacro -> nombre; ?> </p>
+            </div>
+            <div id="cuadro_dos_doc_pre_list">
+ <div >          
       <!-------------Componente Areas Preguntas------------------->
 
         <?php if($areas_simulacro): ?>
@@ -100,9 +107,10 @@
                   
            <div id="cuadro_content">
                 <div class="pregunta_prueba">
-               <div id="cuadro_uno">
-                <p><?php echo $as -> nombre; ?></p>
-            </div>
+               
+               <div id="titulo_area">
+                <p>Area a evaluar<br><span><?php echo $as -> nombre; ?></span></p>
+              </div>
             
               
               <?php $preguntas = $preguntas_area[$as -> id]; ?>
@@ -112,7 +120,7 @@
                 <br>
                 <p class="tipo_preg"><b><center>Pregunta(s) de Selección Múltiple con única respuesta</center></b></p>
                 <?php $n_pregunta = 0; ?>
-                <?php foreach ($preguntas as $p): ?>
+                <?php foreach ($preguntas as $p): print("<br>"); ?>
                 <!-----------Preguntas del Area--------------->
 
                 <div class="pru_preg">
@@ -165,8 +173,15 @@
         <?php endif; ?>
 
     </div> 
-              
+
+            </div>
+          
+          
+          
+            </div>
+        </div>
 </div>
+
     
 </div>
    

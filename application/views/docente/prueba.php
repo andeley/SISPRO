@@ -76,9 +76,7 @@
       
 <div class="container-fluid">
 
-   <div id="titulo_programa">          
-      
-    </div> 
+ 
 
     <div id="indice_pag">
                   <p>Programa de <?php echo $programa; ?></p>

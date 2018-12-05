@@ -84,16 +84,16 @@ date_default_timezone_set('America/Bogota');
       <!-- Modal content-->
   <div class="modal-content modal_per ">
    
-   <div class="reg_sim">
+   <div class="ingresar_datos_simulacro">
      <button type="button" class="close" data-dismiss="modal">&times;</button>
       <div class="modal-header">
 
-      <div id="reg_sim_titu_modal">
+      <div id="ingresar_datos_simulacro_titulo">
               <h3>Detalle del Simulacro</h3>
       </div>
     </div>
      <div class="modal-body">
-     <div id="reg_sim_content">
+     <div id="ingresar_datos_simulacro_content">
           <p><b>nombre: </b><?=$s->nombreS;?> </p>
           <p><b>Descripción: </b><?=$s->descripcion;?> </p>
           <p><b>Director A cargo: </b><?=$s->nombreDir;?></p>
@@ -134,7 +134,7 @@ date_default_timezone_set('America/Bogota');
   </div>
 
 
-<div class="cuadro_prin_dir_simulacro_edit">
+<div class="cuadro_prin_dir_simulacro_reg">
  
   <!--Insert JavaScript behavior-->
  <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -393,16 +393,16 @@ if (!$estudiantes) {?>
 
       <!-- Modal content-->
   <div class="modal-content modal_per ">
-   <div class="reg_sim">
+   <div class="ingresar_datos_simulacro">
      <button type="button" class="close" data-dismiss="modal">&times;</button>
       <div class="modal-header">
 
-      <div id="reg_sim_titu_modal">
+      <div id="ingresar_datos_simulacro_titulo">
               <h3>Registrar Simulacro</h3>
       </div>
     </div>
      <div class="modal-body">
-     <div id="reg_sim_content">
+     <div id="ingresar_datos_simulacro_content">
         <form class="form-group" method="post"  action="<?php echo base_url(); ?>director/Simulacros/registrar">
        <div class="container">
          <div class="row">
@@ -429,18 +429,24 @@ if (!$estudiantes) {?>
            </div>
          </div> </center>
        </div>
-          <input type="submit" class="btn btn_reg_pre" value="Registrar Simulacro">
-           </form>
+          
     </div>
     </div>
     <div class="modal-footer" style="padding: 0px;">
-      <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 20px;">Cerrar</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-right: 20px;">Cerrar</button>
+      <input type="submit" class="btn btn_reg_pre" value="Registrar Simulacro">
+
+      </form>
     </div>
   </div>
             </div>
 </div>
 </div>
       <!--Fin de la ventana Modal-->
+
+
+
+
 
 <footer class="small text-center text-white-50">
     <div class="container">
