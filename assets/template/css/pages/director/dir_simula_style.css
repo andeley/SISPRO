@@ -1,4 +1,4 @@
-@import 'content_style.css';
+@import '../content_style.css';
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 body {
     overflow-x: hidden;
