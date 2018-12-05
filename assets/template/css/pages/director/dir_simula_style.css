@@ -57,3 +57,38 @@ body {
     font-family: 'Raleway', sans-serif;
     color: white;
 }
+
+
+/********************MODAL VER DATOS PRUEBA***********************/
+
+.ingresar_datos_simulacro{
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    border-bottom: 4px solid #EA3D4F;
+    margin-bottom: 20px;
+    padding: 50px;
+}
+
+.ingresar_datos_simulacro #ingresar_datos_simulacro_titulo{
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: #747474;
+        font-family: 'Raleway', sans-serif;
+    border-bottom: 2px solid #EA3D4F;
+}
+
+.ingresar_datos_simulacro #ingresar_datos_simulacro_content{
+    
+    width: 100%;
+        font-family: 'Raleway', sans-serif;
+    margin-top: 30px;
+}
+ .btn_reg_pre{
+     background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120));
+     color: white;
+     float: right;
+
+ }
+ 

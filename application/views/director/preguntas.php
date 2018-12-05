@@ -115,16 +115,16 @@ $num_filas = ceil(count($todas_las_areas) / 3);
 <?php
 if ($enunciado != "no existe enunciado") {
         ?>
-<p><?=$enunciado;?></p>
+<pstyle="text-align: justify;"><?=$enunciado;?></p>
 <?php
 }
     ?>
-<p><?=$info_pregunta->descripcion?></p>
+<p style="text-align: justify;"><?=$info_pregunta->descripcion?></p>
 <?php
 $i = 97;
     foreach ($opciones_respuesta as $o) {
         ?>
-        <p><?=chr($i++) . ". " . $o->descripcion;?></p>
+        <p style="text-align: justify;"><?=chr($i++) . ". " . $o->descripcion;?></p>
         <?php
 
     }?>
@@ -414,6 +414,7 @@ break;
     </div>
         </div>
              <input type="submit" class="btn btn_reg_pre" value="Registrar">
+             
                 </div>
             </div>
 
