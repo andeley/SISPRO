@@ -13,7 +13,14 @@
     <!-- Bootstrap core-->
     <link href="<?php echo base_url(); ?>assets/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/dir_pre_style.css">
+
+
+    <!----------INICIO LINK LOCAL-------------->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/pages/docente/doc_per_style.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/pages/docente/doc_pre_style.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/pages/docente/doc_areas_style.css">
+     <!--------------FIN LINK LOCAL ------------->
+     
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/menu.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

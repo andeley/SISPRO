@@ -1,9 +1,8 @@
 @import '../content_style.css';
 @import url('https://fonts.googleapis.com/css?family=Raleway');
-
 body {
     overflow-x: hidden;
-    background-image: url(../../../img/bg_areas.jpg);
+    background-image: url(../../../img/bg_docentes.jpg);
     background-position:center;
     background-repeat:no-repeat;
     background-attachment:fixed;
@@ -11,11 +10,10 @@ body {
 }
 
 
+/******************CUADRO **********************************/
 
-/******************CUADRO DATOS**********************************/
 
-
-.cuadro_prin_est_per{
+.cuadro_prin_dir_per{
     font-family: 'Raleway', sans-serif;
     border-radius: 5px;
     margin: 10px auto;
@@ -27,9 +25,7 @@ body {
 }
 
 
-
-
-.cuadro_prin_est_per #cuadro_content_est_per #cuadro_uno_est_per{
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_uno_dir_per{
     color: #747474;
     padding-top: 20px;
     padding-left: 20px;
@@ -39,46 +35,38 @@ body {
     padding-bottom: 1px;
 }
 
-.cuadro_prin_est_per #cuadro_content_est_per #cuadro_uno_est_per p{
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_uno_dir_per p{
         padding-left: 20px;
         color: white;
      border-left: 2px solid white;
     padding-bottom: 6px;
 }
-
 #division{
-    width: 100%;
     display: inline-block;
+    width: 100%;
 }
-.cuadro_prin_est_per #cuadro_content_est_per #cuadro_dos_est_per{
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_dos_dir_per{
     font-family: 'Raleway', sans-serif;
-     width: 50%;
+    width: 50%;
     padding-left: 50px;
     padding-top: 15px;
     float: left;
+    border-right: 2px solid #DADADA;
 }
 
-.cuadro_prin_est_per #cuadro_content_est_per #cuadro_dos_est_per .info_basic_est_per{
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_dos_dir_per .info_basic_dir_per{
     font-weight: 600;
     padding-right: 20px;
 }
-.cuadro_prin_est_per #cuadro_content_est_per #cuadro_dos_est_per ul{
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_dos_dir_per ul{
   list-style:none;
 }
 
-.cuadro_prin_est_per #cuadro_content_est_per #cuadro_tres_est_per ul{
-  list-style:none;
-}
-
-.cuadro_prin_est_per #cuadro_content_est_per #cuadro_tres_est_per .info_basic_est_per{
-    font-weight: 600;
-    padding-right: 20px;
-}
-.cuadro_prin_est_per #cuadro_content_est_per #cuadro_tres_est_per{
+.cuadro_prin_dir_per #cuadro_content_dir_per #cuadro_tres_dir_per{
     font-family: 'Raleway', sans-serif;
-     width: 50%;
+    width: 50%;
     padding-left: 50px;
     padding-top: 15px;
-    border-right: 2px solid #DADADA;
-    float: right;   
+    float: right;
+    
 }

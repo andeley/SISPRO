@@ -64,18 +64,19 @@ date_default_timezone_set('America/Bogota');
   <div id="myModal<?=$s->id;?>" class="modal fade " role="dialog">
         <div class="modal-dialog modal-lg ">
 
+
       <!-- Modal content-->
   <div class="modal-content modal_per ">
-   <div class="reg_sim">
+   <div class="ver_datos_simul">
      <button type="button" class="close" data-dismiss="modal">&times;</button>
       <div class="modal-header">
 
-      <div id="reg_sim_titu_modal">
+      <div id="ver_datos_simul_titu_modal">
               <h3>Detalle del Simulacro</h3>
       </div>
     </div>
      <div class="modal-body">
-     <div id="reg_sim_content">
+     <div id="ver_datos_simul_content">
           <p><b>nombre: </b><?=$s->nombreS;?> </p>
           <p><b>Descripción: </b><?=$s->descripcion;?> </p>
           <p><b>Director A cargo: </b><?=$s->nombreDir;?></p>

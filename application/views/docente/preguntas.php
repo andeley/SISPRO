@@ -9,21 +9,19 @@
          <div id="cotenido_pag">
         <!-------------- CUADRO LISTADO PREGUNTAS------->
 
-            <div class="cuadro_prin">
+            <div class="cuadro_prin_doc_pre_a">
 
-           <div id="cuadro_content">
-            <div id="cuadro_uno">
+           <div id="cuadro_content_doc_pre_a">
+            <div id="cuadro_uno_doc_pre_a">
                 <p>Opciones Preguntas</p>
             </div>
 
-            <div id="cuadro_dos">
+            <div id="cuadro_dos_doc_pre_a">
                  <form>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Registrar Pregunta</button>
                  </form>
             </div>
             </div>
-
-
         </div>
 <!--Ver Areas existentes para las preguntas-->
          <div id="indice_pag">
@@ -44,8 +42,8 @@ $num_filas = ceil(count($todas_las_areas) / 3);
 
            <div class="col-md-4 mb-3 mb-md-0">
             <div class="card py-4 h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+              <div class="card-body text-center text_style_pre">
+                 <i class="fas fa-spa text-primary mb-2" style="color: #FC0758!important"></i>
                 <h4 class="m-0"><a href="<?php echo base_url(); ?>docente/Preguntas/ver_preguntas_area/<?=$todas_las_areas[$cont]->id?>"><?php echo $todas_las_areas[$cont]->nombre ?></a></h4>
               </div>
             </div>
@@ -105,6 +103,8 @@ $num_filas = ceil(count($todas_las_areas) / 3);
             <p>Gestionar > <a href="<?=base_url();?>docente/Preguntas">Preguntas</a> > <a href="<?php echo base_url(); ?>docente/Preguntas/ver_preguntas_area/<?=$area_p->id?>"><?=$area_p->nombre?></a></p>
             </div>
          <div id="cotenido_pag">
+<div class="cuadro_prin_doc_pre_a">
+
             <center><h3>Informacion acerca de la pregunta <?=$info_pregunta->id?></h3></center>
 <?php
 if ($enunciado != "no existe enunciado") {
@@ -145,7 +145,7 @@ if ($info_pregunta->tipo == "sm") {
         } else {
             echo "Incorrecta";
         }?></center></td>
-        <td><center><?php echo $o->justificacion; ?></center></td>
+        <td id="text_pre_justi"><?php echo $o->justificacion; ?></td>
         </tr>
     <?php endforeach;?>
   </tbody>
@@ -165,6 +165,7 @@ break;
         }
     }
     ?>
+  </div>
         </div>
 
 <?php } else if ($tipo == "ver preguntas docente") {?>
@@ -224,18 +225,21 @@ break;
          <div id="myModal" class="modal fade " role="dialog">
           <div class="modal-dialog modal-lg ">
 
+
+
+
         <!-- Modal content-->
     <div class="modal-content modal_per ">
-     <div class="reg_sim">
+    <div class="reg_prueba_doc">
        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <div class="modal-header">
 
-        <div id="reg_sim_titu_modal">
+        <div id="ver_datos_est_titu_modal">
                 <h3>Registrar preguntas</h3>
         </div>
       </div>
        <div class="modal-body">
-       <div id="reg_sim_content">
+       <div id="ver_datos_est_content">
 
     <form class="form-group" method="post" id="formCrearPregunta" action="<?php echo base_url(); ?>docente/Preguntas/anadir?>">
 <!--------------------EDITOR DE TEXTO------------------------------->
@@ -341,7 +345,7 @@ break;
     </div>
     </div>
         </div>
-             <input type="submit" class="btn btn_reg_pre" value="Registrar">
+             <input type="submit" class="btn btn-danger btn_reg_pru" value="Registrar">
                 </div>
             </div>
 
@@ -355,7 +359,7 @@ break;
       </div>
     </div>
               </div>
-  </div>
+  </div></div>
 </div>
 
    <!----------------FOOTER---------------------->

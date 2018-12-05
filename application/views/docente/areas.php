@@ -50,11 +50,14 @@
             <div id="indice_pag">
                     <center><p>Opciones del Usuario - Relacionarse a un Area</p></center>
                 </div>
+
+  <div class="cuadro_prin_doc_pre_ami">
+
+           <div id="cuadro_content_doc_pre_ami">
+            
+              
                         <form method="post" action="<?php echo base_url(); ?>docente/Areas/registrarArea?>">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <select id="inputState" class="form-control" name="areaR" >
+                           <select id="inputState" class="form-control" name="areaR" >
                                 <?php foreach ($todas_las_areas as $area): ?>
                                      <?php $validacion = false;?>
                                      <?php foreach ($areas_doc as $area_doc) {
@@ -70,20 +73,30 @@
 
                                   <?php endforeach;?>
                                         </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <center>
-                                            <input type="submit" name="guardarA" align="center" height="5px" style="margin:0;" class="btn btn_reg_pre" value="Registrar Area">
-                                        </center>
+                                   
+
+            
+
+
+       
+                                       
+                                            <input type="submit" name="guardarA" align="center" height="5px" style="margin:0;" class="btn btn_regu" value="Registrar Area">
+                                      
                                         
-                                    </div>
-                                </div>
-                            </div>
+                                  
+                                  </form>
+                           
+                           
                         </form>
+        
+        </div>
+
+
+              
             </div>
         </div>
 </div>
-
+</div>
 <footer class="small text-center text-white-50">
       <div class="container">
         Copyright &copy; Ingeniería de Software

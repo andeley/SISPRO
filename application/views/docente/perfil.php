@@ -1,18 +1,33 @@
 <div id="page_content">
       
 <div class="container-fluid">
-    <div id="indice_pag">          
+     <div id="indice_pag">          
         <center><p>Perfil del Docente</p></center>
     </div>     
+     
     
-    <div id="cotenido_pag"> 
+    <div id="cotenido_pag">          
     
-     <b>Nombre:</b>  <?=$info -> nombre?> <br>
-     <b>Id:</b>  <?=$info -> id?> <br>
-     <b>Código:</b>  <?=$info -> codigo?> <br>
-     <b>Correo Electrónico: </b> <?=$info -> correo?> <br>
-     <b>Programa Académico:</b>  <?=$programa;?> <br>
+    <div class="cuadro_prin_dir_per">
+                  
+           <div id="cuadro_content_dir_per">
+            <div id="cuadro_uno_dir_per">
+                <p>Información basica</p>
+            </div>
+            
+            <div id="division">
+            <div id="cuadro_dos_dir_per">
+                <ul>
+                    <li><span class="info_basic_dir_per">Nombre: </span> <br><?=$info -> nombre?></li>
+                    <li><span class="info_basic_dir_per">Codigo</span><br><?=$info -> codigo?></li>
+                    <li><span class="info_basic_dir_per">Email: </span><br> <?=$info -> correo?></li>
+                    <li><span class="info_basic_dir_per">Programa academico:</span><br><?=$programa;?> </li>
+                    <li><span class="info_basic_dir_per">Función:</span><br>Docente de programa</li>
+                </ul>
+            
+            </div>
 
+            <div id="cuadro_tres_dir_per">
      <!--Areas de conocimiento del docente-->
 
        <?php if ($areas_doc != false) {
@@ -30,8 +45,18 @@
             <?php }?>
 
 
-    </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+
+      
+
+    </div>              
 </div>
+    
 </div>
 
 

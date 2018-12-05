@@ -1,0 +1,51 @@
+
+
+.cuadro_prin_doc_pre_ami{
+   font-family: 'Raleway', sans-serif;
+    border-radius: 5px;
+    margin: 10px auto;
+    background: white;
+    width: 100%;
+    border-bottom: 4px solid #EA3D4F;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px #616060;
+    padding: 20px;
+}
+
+
+.btn_regu input{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120));
+    margin-top: 28px;
+    font-family: 'Raleway', sans-serif;
+}
+
+/********************MODAL VER DATOS ESTUDIANTE***********************/
+
+.ver_datos_simul{
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    border-bottom: 4px solid #EA3D4F;
+    margin-bottom: 20px;
+    padding: 50px;
+}
+
+.ver_datos_simul #ver_datos_simul_titu_modal{
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: #747474;
+        font-family: 'Raleway', sans-serif;
+    border-bottom: 2px solid #EA3D4F;
+}
+
+.ver_datos_simul #ver_datos_simul_content{
+    
+    width: 100%;
+        font-family: 'Raleway', sans-serif;
+    margin-top: 30px;
+}
