@@ -18,7 +18,7 @@
           </div>
           <div id="cuadro_dos_dir_simulacro_reg">
                <form>
-                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Registrar Nuevo Simulacro</button>
+                  <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Registrar Nuevo Simulacro</button>
                </form>
           </div>
           </div>
