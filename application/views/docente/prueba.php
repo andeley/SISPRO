@@ -30,7 +30,7 @@
 
   <body>
     <!-----------MENU--------------->
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+       <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a  class="navbar-brand js-scroll-trigger" href="#page-top">
     <img src="<?php echo base_url(); ?>assets/template/img/logo_blanco.png" alt="">        
@@ -45,27 +45,16 @@
           <ul class="navbar-nav ml-auto">  
            
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>director/Areas">Areas</a>
+              <a class="nav-link js-scroll-trigger" href="<?php echo base_url();?>docente/Preguntas">Preguntas</a>
             </li>
-            
+            <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="<?php echo base_url();?>docente/Areas">Areas</a>
+            </li>
              <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>director/Preguntas">Preguntas</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>director/Simulacros">Simulacros</a>
-            </li>
-            
-            
-             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>director/usuarios/Docentes">Docentes</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>director/usuarios/Estudiantes">Estudiantes</a>
+              <a class="nav-link js-scroll-trigger" href="<?=base_url();?>docente/Simulacros">Simulacros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?php echo base_url(); ?>director/Perfil">Perfil</a>
+              <a class="nav-link js-scroll-trigger" href="<?php echo base_url(); ?>docente/Perfil">Perfil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo base_url(); ?>AutenticarLogin/logout">Logout</a>

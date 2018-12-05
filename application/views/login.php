@@ -101,37 +101,16 @@
             <div class="card py-4 h-100">
               <div class="card-body text-center">
                 <i class="fas fa-spa text-primary mb-2" style="color: #FC0758!important"></i>
-                <h4 class="text-uppercase m-0">25/11/2018</h4>
+                <h4 class="text-uppercase m-0">Simulacro Prueba Saber Pro 2016 - 02</h4>
+                <h4 class="text-uppercase m-0">05/12/2018</h4>
                 <hr class="my-4">
                 <div class="small text-black-50 ">Hora comienzo: 8:00am
-                <br>Hora finalización: 12:00pm<br>Sala disponible para realización de la prueba: AS 402</div>
+                <br>Hora finalización: 12:00pm<br>
               </div>
             </div>
           </div>
 
-           <div class="col-md-4 mb-3 mb-md-0">
-            <div class="card py-4 h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-spa text-primary mb-2" style="color: #FC0758!important"></i>
-                <h4 class="text-uppercase m-0">25/11/2018</h4>
-                <hr class="my-4">
-                <div class="small text-black-50 ">Hora comienzo: 2:00pm
-                <br>Hora finalización: 5:00pm<br>Sala disponible para realización de la prueba: AS 402</div>
-              </div>
-            </div>
-          </div>
 
-          <div id="noti_info" class="col-md-4 mb-3 mb-md-0">
-            <div class="card py-4 h-100">
-              <div class="card-body text-center">
-               <i class="fas fa-spa text-primary mb-2" style="color: #FC0758!important"></i>
-                <h4 class="text-uppercase m-0">26/11/2018</h4>
-                <hr class="my-4">
-                <div class="small text-black-50 ">Hora comienzo: 8:00am
-                <br>Hora finalización: 12:00pm<br>Sala disponible para realización de la prueba: AS 402</div>
-              </div>
-            </div>
-          </div>
 </div>
       </div>
     </section>
