@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/pages/docente/doc_per_style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/pages/docente/doc_pre_style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/pages/docente/doc_areas_style.css">
+  
      <!--------------FIN LINK LOCAL ------------->
      
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/css/menu.css">

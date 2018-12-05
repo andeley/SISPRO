@@ -1,9 +1,11 @@
 <div id="page_content">
 
         <div class="container-fluid">
+            
             <div id="indice_pag">
                 <p>Docente > <a href="<?=base_url();?>docente/Areas">Areas</a></p>
             </div>
+            
             <div id="cotenido_pag">
 
                     <?php

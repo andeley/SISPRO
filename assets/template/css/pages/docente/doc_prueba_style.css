@@ -1,0 +1,65 @@
+@import '../content_style.css';
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+
+body {
+    overflow-x: hidden;
+    background-image: url(../../../img/bg_preguntas.jpg);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:cover
+}
+
+/******************CUADRO **********************************/
+
+
+.cuadro_prin_doc_pre_list{
+    font-family: 'Raleway', sans-serif;
+    border-radius: 5px;
+    margin: 10px auto;
+    background: white;
+    width: 100%;
+    border-bottom: 4px solid #EA3D4F;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px #616060;
+    padding-bottom: 50px;
+}
+
+
+.cuadro_prin_doc_pre_list #cuadro_content_doc_pre_list #cuadro_uno_doc_pre_list{
+    color: #747474;
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 100%;
+    font-size: 20px;
+     background-image: linear-gradient(to right, rgba(205, 43, 57), rgba(227, 73, 120));
+    padding-bottom: 1px;
+}
+
+.cuadro_prin_doc_pre_list #cuadro_content_doc_pre_list #cuadro_uno_doc_pre_list p{
+        padding-left: 20px;
+        color: white;
+     border-left: 2px solid white;
+    padding-bottom: 6px;
+}
+
+
+.cuadro_prin_doc_pre_list #cuadro_content_doc_pre_list #cuadro_dos_doc_pre_list{
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    height: auto;
+    padding-left: 50px;
+    padding-right:  50px;
+    text-align: justify;
+   
+}
+
+
+#titulo_area{
+    margin-top: 10px;
+}
+
+#titulo_area span{
+font-size: 20px;
+}
