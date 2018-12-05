@@ -10,6 +10,7 @@ public function getPreguntasAreaPublicas($id_area){
         $this->db->join('area a', 'a.id=p.id_area');
         $this->db->where('p.id_area', $id_area);
         $this->db->where('p.visibilidad', 'publico');
+        $this->db->where('p.estado', 'aprobado');
         $consulta = $this->db->get();
         if ($consulta->num_rows() > 0) {
             return $consulta->result();

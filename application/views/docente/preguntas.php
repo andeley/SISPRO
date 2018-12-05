@@ -38,7 +38,7 @@ $num_filas = ceil(count($todas_las_areas) / 3);
         ?>
 
            <div class="row">
-            <?php for ($i = 0; $i < 3 && $cont < count($todas_las_areas); $i++, $cont++) {?>
+            <?php for ($i = 0; $i < 3 || $cont < count($todas_las_areas); $i++, $cont++) {?>
 
            <div class="col-md-4 mb-3 mb-md-0">
             <div class="card py-4 h-100">

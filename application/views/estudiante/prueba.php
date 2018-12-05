@@ -130,12 +130,12 @@
     
       
 <div class="container-fluid">
-   <div id="titulo_programa">          
+   <center><div id="indice_pag">          
         <p>Programa de <?php echo $programa; ?></p>
     </div> 
     <div id="indice_pag">          
         <p><?php echo $simulacro -> nombre; ?> </p>
-    </div>     
+    </div> </center>    
     
     <div id="cotenido_pag">          
       <!-------------Componente Areas Preguntas------------------->

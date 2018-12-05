@@ -85,9 +85,26 @@
         <p>Programa de <?php echo $programa; ?></p>
     </div> 
     <div id="indice_pag">          
-        <p><b>Muestra de la prueba: </b><?php echo $simulacro -> nombre; ?> </p>
+        <p><b>Muestra de la prueba: </b><?php echo $simulacro -> nombre; ?><a href="#" onclick="window.print()"> ( Guardar )</a> </p>
     </div> 
   </center>
+
+  <style type="text/css">
+    @media print .cotenido {
+    
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 10px;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
+    
+}
+  </style>
        
     
     <div id="cotenido_pag">          

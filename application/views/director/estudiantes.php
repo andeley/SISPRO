@@ -23,6 +23,7 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <?php $i =0; ?>
                             <?php  foreach ($estudiantes as $estudiante):?>
                                 <tr>
                               <th scope="row"><?php echo $estudiante-> id;?></th>
@@ -44,13 +45,58 @@
         <div class="modal-header">
 
         <div id="ver_datos_est_titu_modal">
-                <h3>Detalle del Estudiante</h3>
+                <h3>Desempeño en Areas de Conocimiento</h3>
         </div>
       </div>
        <div class="modal-body">
-       <div id="ver_datos_est_content">
-            detalle estudiante <?php echo $estudiante-> nombre; ?>
-      </div>
+          
+       <canvas id="myChart<?php echo $estudiante->id;?>"></canvas>
+  <script type="text/javascript">
+
+    function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+    var ctxForecastChart = $("#myChart<?php echo $estudiante->id;?>").get(0).getContext("2d");
+var forecastChartData = {
+    labels: [
+        "Acumulado Promedio del desempeño"
+    ],
+    datasets: [
+    {
+        label: "Formulacion, Evaluación y Gestión de Proyectos",
+        backgroundColor: getRandomColor(),
+        hoverBackgroundColor: getRandomColor(),
+        data: [(Math.random() * 5).toFixed(2)]
+    },
+    {
+        label: "Diseño de Software",
+        backgroundColor: getRandomColor(),
+        hoverBackgroundColor: getRandomColor(),
+        data: [(Math.random() * 5).toFixed(2)]
+    }]
+};
+
+var forecastOptions = {
+    tooltips: {
+        enabled: true
+    }
+};
+
+var forecastBarChart = new Chart(ctxForecastChart,
+{
+    type: 'bar',
+    data: forecastChartData,
+    options: forecastOptions
+});
+  </script>
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -60,7 +106,7 @@
   </div>
 </div>
 <!--fin modal detalle del Estudiante-->
-
+                            <?php $i++; ?>
                             <?php endforeach; ?>
                           </tbody>
                         </table>
