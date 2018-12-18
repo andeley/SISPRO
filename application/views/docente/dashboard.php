@@ -1,8 +1,4 @@
-
-        <!-- =============================================== -->
-
-        <!-- Content Wrapper. Contains page content -->
-        <div style="min-height: 524px;">
+<div style="min-height: 524px;">
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>

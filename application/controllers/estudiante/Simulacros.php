@@ -1,4 +1,4 @@
- <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Simulacros extends CI_Controller {
@@ -154,8 +154,8 @@ class Simulacros extends CI_Controller {
 				if($preguntas_respondidas){
 					$total = count($preguntas_respondidas);
 				}
-				
-				$data['porcentaje'] = (int) (($total*100)/$num_preguntas);
+				$data['porcentaje']=0;
+				if($num_preguntas>0)$data['porcentaje'] = (int) (($total*100)/$num_preguntas);
 				$data['preguntas_respondidas'] = $preguntas_respondidas;
 		}else{
 				$data['areas_simulacro'] = false;

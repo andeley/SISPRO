@@ -1,4 +1,3 @@
-  
 <div id="page_content">
 
 <div class="container-fluid">

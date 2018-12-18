@@ -26,5 +26,19 @@ class Perfil extends CI_Controller { //autenticar
 		
 		$this->load->view('director/perfil', $data);
 	}
+
+	public function editar(){
+
+	 $id=$this->session->userdata("id");
+     $usuario['codigo'] = $this->input ->post("codigoE");
+     $usuario['nombre'] = $this->input ->post("nombreE");
+     $usuario['correo'] = $this->input ->post("correoE");
+ 	 $pass = $this->input ->post("passwordE");
+     if($pass!="") $usuario['password']= sha1($pass);
+
+      $this-> Usuarios_model -> editarUsuario($usuario, $id,"docente");
+      redirect(base_url()."director/Perfil");
+	}
+
 	}
 ?>

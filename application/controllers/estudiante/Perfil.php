@@ -1,4 +1,4 @@
- <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Perfil extends CI_Controller {
@@ -25,4 +25,20 @@ class Perfil extends CI_Controller {
 		$data['semestre'] = $this-> Usuarios_model -> getSemestre($id);
 		$this->load->view('estudiante/perfil', $data);
 	}
+
+	public function editar(){
+
+	 $id=$this->session->userdata("id");
+     $usuario['codigo'] = $this->input ->post("codigoE");
+     $usuario['nombre'] = $this->input ->post("nombreE");
+     $usuario['correo'] = $this->input ->post("correoE");
+     $estudiante['nPeriodos'] = $this->input ->post("semestreE");
+ 	 $pass = $this->input ->post("passwordE");
+     if($pass!="") $usuario['password']= sha1($pass);
+
+      $this-> Usuarios_model -> editarUsuario($usuario, $id,"docente");
+       $this-> Usuarios_model -> cambiarSemestre($estudiante, $id);
+      redirect(base_url()."estudiante/Perfil");
+	}
+
 }

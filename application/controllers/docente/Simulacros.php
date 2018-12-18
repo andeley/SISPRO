@@ -1,4 +1,4 @@
- <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Simulacros extends CI_Controller {
@@ -18,7 +18,7 @@ class Simulacros extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('dOCENTE/header');
+		$this->load->view('docente/header');
 		
 
 		$id=$this->session->userdata("id");

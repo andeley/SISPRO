@@ -180,7 +180,7 @@ public function getSimulacrosPrograma($nombre_programa){
 
 public function getEstudiantes($id){//estudiantes que se registraron en el simulacro
 	$this->db->select('u.id, u.codigo, u.nombre');
-	$this->db->from('Inscripcion i');
+	$this->db->from('inscripcion i');
 	$this->db->join('estudiante e', 'e.id_user=i.id_estudiante');
 	$this->db->join('usuario u', 'e.id_user=u.id');
 	$this->db->where('id_simulacro', $id );

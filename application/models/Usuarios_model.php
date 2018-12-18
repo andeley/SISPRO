@@ -3,6 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios_model extends CI_Model {
 
+    public function  cambiarSemestre($estudiante, $id){
+         $this->db->where('id_user',  $id);
+            $this->db->update('estudiante', $estudiante);
+    }
+
+    public function editarUsuario($usuario, $id_user, $tipo){
+       
+            $this->db->where('id',  $id_user);
+            $this->db->update('usuario', $usuario);
+        
+    }
+
     public function login($codigo, $password){
         $this->db->where("codigo", $codigo); //hacer comparación
         $this->db->where("password", $password);
