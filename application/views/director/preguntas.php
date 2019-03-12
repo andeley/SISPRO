@@ -115,7 +115,7 @@ $num_filas = ceil(count($todas_las_areas) / 3);
 <?php
 if ($enunciado != "no existe enunciado") {
         ?>
-<pstyle="text-align: justify;"><?=$enunciado;?></p>
+<p style="text-align: justify;"><?=$enunciado;?></p>
 <?php
 }
     ?>
@@ -136,6 +136,7 @@ if ($info_pregunta->tipo == "sm") {
                <table class="table table-hover">
   <thead>
     <tr id="tit_table">
+     
       <th scope="col"><center>Opción</center></th>
       <th scope="col"><center>Respuesta</center></th>
       <th scope="col"><center>Justificación</center></th>

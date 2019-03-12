@@ -23,7 +23,7 @@ if ($docentes_a) {?>
                             </tr>
                           </thead>
                           <tbody>
-                            <?php foreach ($docentes_a as $docente): ?>
+                            <?php if($docentes_a): foreach ($docentes_a as $docente): ?>
 
                               <tr>
                               <th scope="row"><?php echo $docente->id; ?></th>
@@ -34,7 +34,7 @@ if ($docentes_a) {?>
                               </center></td>
                             </tr>
 
-                            <?php endforeach;?>
+                            <?php endforeach; endif;?>
                           </tbody>
                         </table>
                         </div>
@@ -54,7 +54,7 @@ if ($docentes_a) {?>
                           </thead>
                           <tbody>
                             <?php $i =0; ?>
-                            <?php foreach ($docentes_a2 as $docente): ?>
+                            <?php if($docentes_a2): foreach ($docentes_a2 as $docente): ?>
 
                               <tr>
                               <th scope="row"><?php echo $docente->id; ?></th>
@@ -111,7 +111,7 @@ if ($docentes_a) {?>
 </div>
 </div>
 <?php $i++; ?>
-                            <?php endforeach;?>
+                            <?php endforeach; endif;?>
                           </tbody>
                         </table>
                         </div>

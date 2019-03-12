@@ -88,7 +88,7 @@ class Usuarios_model extends CI_Model {
         $this->db->join('docente d','d.id_user=u.id');
         $this->db->join('programa_academico p','p.id=u.id_programa');
         $this->db->where('d.estado_aprobacion', $valor);
-        $this->db->where("p.nombre", $programa);
+      //  $this->db->where("p.nombre", $programa);
 
         $consulta=$this->db->get();
         if($consulta->num_rows() > 0){
@@ -185,7 +185,7 @@ public function registrarDocente($data){
         $this->db->insert('docente', array(
             'id_user'=> $id,
             'es_director'=> "no",
-            'estado_aprobacion'=> "espera"
+            'estado_aprobacion'=> "aprobado"
         ));
 
     }catch(excepcion $e){

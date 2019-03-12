@@ -195,12 +195,6 @@ $i = 0;
 </div>
         <!--Fin de la ventana Modal-->
 
-
-
-
-
-
-
     <?php }?>
   </tbody>
 </table>
@@ -257,20 +251,21 @@ $i = 0;
     </td>
     </tr>
     <!--Modal detalle de los resultados-->
-     <div id="myModal<?=$se->id;?>" class="modal fade " role="dialog">
+     <div id="myModal<?=$se-> id;?>" class="modal fade " role="dialog">
         <div class="modal-dialog modal-lg ">
 
       <!-- Modal content-->
   <div class="modal-content modal_per ">
    <div class="reg_sim">
      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <div class="modal-header">
+    <div class="modal-header">
 
       <div id="reg_sim_titu_modal">
               <h3>Detalle de Resultado</h3>
       </div>
     </div>
-     <div class="modal-body">
+     
+    <div class="modal-body">
      <div id="reg_sim_content">
 <?php $i = 0; ?>
 
@@ -278,49 +273,86 @@ $i = 0;
 
 <div class="container">
   
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <canvas id="myChart"></canvas>
-    </div>
-    <div class="col-md-2"></div>
-  </div>
-</div>
+      <canvas id="myChart<?php echo $se->id;?>"></canvas>
+   
 
 <script>
-  var vector = <?php echo(json_encode(array_column($calificaciones2, 'nombre_area'))); ?>;
-  var calificaciones = <?php echo(json_encode(array_column($calificaciones2, 'puntaje'))); ?>;
-  var color1=['rgba(255,0,0,1)','rgba(255,153,0,1)','rgba(255,255,0,1)',
-              'rgba(0,255,0,1)','rgba(0,0,255,1)'];
-  var color2=['rgba(255,0,0,0.75)','rgba(255,153,0,0.75)','rgba(255,255,0,0.75)',
-              'rgba(0,255,0,0.75)','rgba(0,0,255,0.75)'];
+/*
+    var vector = <?php echo(json_encode(array_column($calificaciones2, 'nombre_area'))); ?>;
+    var calificaciones = <?php echo(json_encode(array_column($calificaciones2, 'puntaje'))); ?>;
+    var color1=['rgba(255,0,0,1)','rgba(255,153,0,1)','rgba(255,255,0,1)',
+                'rgba(0,255,0,1)','rgba(0,0,255,1)'];
+    var color2=['rgba(255,0,0,0.75)','rgba(255,153,0,0.75)','rgba(255,255,0,0.75)',
+                'rgba(0,255,0,0.75)','rgba(0,0,255,0.75)'];
 
-var n_areas = calificaciones.length;
+    var n_areas = calificaciones.length;
 
 
-var total = new Array();
-for(i = 0; i < n_areas; i++){
-  
-total.push({
-    "label": vector[i],
-    "backgroundColor": color1[i%6],
-    "hoverBackgroundColor": color2[i%6],
-    "data": [calificaciones[i]]
-});
+        var total = new Array();
+        for(i = 0; i < n_areas; i++){
+        
+      total.push({
+          "label": vector[i],
+          "backgroundColor": color1[i%6],
+          "hoverBackgroundColor": color2[i%6],
+          "data": [calificaciones[i]]
+      });
 
+      }
+
+      var ctx = document.getElementById("myChart").getContext('2d');
+      ctx.canvas.width = 50;
+      ctx.canvas.height = 50;
+
+      var forecastChartData = {
+          labels: [
+              "Calificación"
+          ],
+          datasets: total
+      };
+
+      var forecastOptions = {
+          tooltips: {
+              enabled: true
+          }
+      };
+
+      var forecastBarChart = new Chart(ctx,
+      {
+          type: 'bar',
+          data: forecastChartData,
+          options: forecastOptions
+      });
+      calificaciones = [];
+      vector = [];
+*/
+    function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
-var ctx = document.getElementById("myChart").getContext('2d');
-ctx.canvas.width = 50;
-ctx.canvas.height = 50;
-
-
-//var ctxForecastChart = $("#forecastLineChart").get(0).getContext("2d");
+    var ctxForecastChart = $("#myChart<?php echo $se->id;?>").get(0).getContext("2d");
 var forecastChartData = {
     labels: [
-        "Calificación"
+        "Acumulado Promedio del desempeño"
     ],
-    datasets: total
+    datasets: [
+    {
+        label: "Formulacion, Evaluación y Gestión de Proyectos",
+        backgroundColor: getRandomColor(),
+        hoverBackgroundColor: getRandomColor(),
+        data: [(Math.random() * 5).toFixed(2)]
+    },
+    {
+        label: "Diseño de Software",
+        backgroundColor: getRandomColor(),
+        hoverBackgroundColor: getRandomColor(),
+        data: [(Math.random() * 5).toFixed(2)]
+    }]
 };
 
 var forecastOptions = {
@@ -329,7 +361,7 @@ var forecastOptions = {
     }
 };
 
-var forecastBarChart = new Chart(ctx,
+var forecastBarChart = new Chart(ctxForecastChart,
 {
     type: 'bar',
     data: forecastChartData,
@@ -339,6 +371,7 @@ var forecastBarChart = new Chart(ctx,
 
     </div>
     </div>
+
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
     </div>
@@ -346,6 +379,7 @@ var forecastBarChart = new Chart(ctx,
             </div>
 </div>
 </div>
+
 <!--Fin Modal detalle de los resultados-->
     <?php } ?>
   </tbody>

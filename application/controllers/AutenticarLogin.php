@@ -120,11 +120,29 @@ class AutenticarLogin extends CI_Controller { //autenticar
 
         }else{
         	$resultado = $this->Usuarios_model->registrarDocente($data);
+
+
+
         	//redireccionar a la vista doc
 
         	if($resultado){//mostrar mensaje registro de docente
-			$this->session->set_flashdata("error", "Registro exitoso. esperar la aprobación del director de Programa"); 
-			redirect(base_url()); 
+
+        		$user = $this-> Usuarios_model->login($codigo, sha1($password));
+        	$i = $res->id;
+			//$rol = Usuarios_model->verificarRol($i);
+			$data =array(
+				            'id' =>$user->id, 
+				        	'nombre'=>$user->nombre,
+				        	'rol'=> "docente",
+				        	'login'=> TRUE
+				        );
+
+			$this->session->set_userdata($data); //enviar datos inic sesion
+			redirect(base_url()."docente/Perfil"); 
+
+
+			//$this->session->set_flashdata("error", "Registro exitoso. esperar la aprobación del /director de Programa"); 
+			//redirect(base_url()); 
 
         }else{
         	$this->session->set_flashdata("error", "No se pudo registrar el usuario"); 
